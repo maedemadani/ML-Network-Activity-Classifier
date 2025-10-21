@@ -2,7 +2,9 @@
 code/venv/
 env/
 *.venv
-
+.env
+.venv
+venv/
 # Python cache
 __pycache__/
 *.py[cod]
@@ -31,10 +33,12 @@ coverage.xml
 
 # macOS system files
 .DS_Store
-.idea/
 
-# VSCode settings
+# IDE
+.idea/
 .vscode/
+*.swp
+*.swo
 
 # Reports or temporary outputs (optional)
 *.log
