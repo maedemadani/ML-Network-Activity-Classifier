@@ -1,0 +1,92 @@
+{
+  "original": {
+    "svm": {
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268
+    },
+    "knn": {
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664280086676568,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9515276739940913,
+      "threat_detection_rate": 0.9991642290012537
+    },
+    "logistic_regression": {
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268
+    },
+    "random_forest": {
+      "accuracy": 0.9971283783783784,
+      "f1_macro": 0.9574432549686341,
+      "mean_security_recall": 0.9523967652459273,
+      "security_f1": 0.9365612764325565,
+      "threat_detection_rate": 1.0
+    }
+  },
+  "undersampled": {
+    "svm": {
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268
+    },
+    "knn": {
+      "accuracy": 0.9981418918918918,
+      "f1_macro": 0.969451830229331,
+      "mean_security_recall": 0.9242424242424243,
+      "security_f1": 0.9556660704004255,
+      "threat_detection_rate": 0.9995821145006268
+    },
+    "logistic_regression": {
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268
+    },
+    "random_forest": {
+      "accuracy": 0.9971283783783784,
+      "f1_macro": 0.9574432549686341,
+      "mean_security_recall": 0.9523967652459273,
+      "security_f1": 0.9365612764325565,
+      "threat_detection_rate": 1.0
+    }
+  },
+  "oversampled": {
+    "svm": {
+      "accuracy": 0.9976351351351351,
+      "f1_macro": 0.9620591435565342,
+      "mean_security_recall": 0.9242424242424243,
+      "security_f1": 0.9439551849671114,
+      "threat_detection_rate": 1.0
+    },
+    "knn": {
+      "accuracy": 0.9853040540540541,
+      "f1_macro": 0.8536774536704455,
+      "mean_security_recall": 0.9380005469390944,
+      "security_f1": 0.809158066856104,
+      "threat_detection_rate": 1.0
+    },
+    "logistic_regression": {
+      "accuracy": 0.997804054054054,
+      "f1_macro": 0.9644768153676404,
+      "mean_security_recall": 0.9242424242424243,
+      "security_f1": 0.9477272893249751,
+      "threat_detection_rate": 1.0
+    },
+    "random_forest": {
+      "accuracy": 0.9628378378378378,
+      "f1_macro": 0.7678509032250784,
+      "mean_security_recall": 0.9087783724655233,
+      "security_f1": 0.7286199802976168,
+      "threat_detection_rate": 1.0
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "phase": "Feature Engineering - Phase 2",
+    "timestamp": "2025-10-20T11:49:23.236156",
+    "final_shape": {
+      "rows": 29599,
+      "columns": 46
+    },
+    "scaling_strategy": "standard",
+    "target_column": "Action",
+    "is_fitted": true
+  },
+  "feature_analysis": {
+    "total_features": 46,
+    "numeric_features": 46,
+    "categorical_features": 0,
+    "target_distribution": {
+      "0": 17636,
+      "2": 11635,
+      "1": 328
+    }
+  },
+  "engineer_summary": {
+    "detected_features": {
+      "source_ports": [
+        "NAT Source Port",
+        "Source Port"
+      ],
+      "destination_ports": [
+        "NAT Destination Port",
+        "Destination Port"
+      ],
+      "nat_ports": [
+        "NAT Destination Port",
+        "NAT Source Port"
+      ],
+      "bytes_columns": [
+        "Bytes Received",
+        "Bytes",
+        "Bytes Sent"
+      ],
+      "packets_columns": [
+        "Packets"
+      ],
+      "sent_columns": [
+        "Bytes Sent",
+        "pkts_sent"
+      ],
+      "received_columns": [
+        "Bytes Received",
+        "pkts_received"
+      ],
+      "time_columns": [
+        "Elapsed Time (sec)"
+      ],
+      "timestamp_columns": [
+        "Elapsed Time (sec)"
+      ]
+    },
+    "fitted": true,
+    "scaling_strategy": "standard",
+    "encoders_count": 1,
+    "scalers_count": 1,
+    "has_feature_selector": true
+  },
+  "data_quality": {
+    "missing_values": 0,
+    "memory_usage_mb": 10.39
+  },
+  "process_summary": {
+    "nat_features_created": 14,
+    "port_features_created": 17,
+    "traffic_features_created": 19,
+    "time_features_created": 8,
+    "log_features_created": 10
+  }
+}

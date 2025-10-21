@@ -1,0 +1,48 @@
+{
+  "metadata_path": "data/columns_metadata.json",
+  "scaling_strategy": "standard",
+  "fitted": true,
+  "feature_summary": {
+    "detected_features": {
+      "source_ports": [
+        "NAT Source Port",
+        "Source Port"
+      ],
+      "destination_ports": [
+        "NAT Destination Port",
+        "Destination Port"
+      ],
+      "nat_ports": [
+        "NAT Destination Port",
+        "NAT Source Port"
+      ],
+      "bytes_columns": [
+        "Bytes Received",
+        "Bytes",
+        "Bytes Sent"
+      ],
+      "packets_columns": [
+        "Packets"
+      ],
+      "sent_columns": [
+        "Bytes Sent",
+        "pkts_sent"
+      ],
+      "received_columns": [
+        "Bytes Received",
+        "pkts_received"
+      ],
+      "time_columns": [
+        "Elapsed Time (sec)"
+      ],
+      "timestamp_columns": [
+        "Elapsed Time (sec)"
+      ]
+    },
+    "fitted": true,
+    "scaling_strategy": "standard",
+    "encoders_count": 1,
+    "scalers_count": 1,
+    "has_feature_selector": true
+  }
+}

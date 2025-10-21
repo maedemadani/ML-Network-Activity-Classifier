@@ -1,0 +1,47 @@
+{
+  "numeric_columns": [
+    "Source Port",
+    "Destination Port",
+    "NAT Source Port",
+    "NAT Destination Port",
+    "Bytes",
+    "Bytes Sent",
+    "Bytes Received",
+    "Packets",
+    "Elapsed Time (sec)",
+    "pkts_sent",
+    "pkts_received"
+  ],
+  "categorical_columns": [
+    "Action"
+  ],
+  "datetime_columns": [],
+  "all_columns": [
+    "Source Port",
+    "Destination Port",
+    "NAT Source Port",
+    "NAT Destination Port",
+    "Action",
+    "Bytes",
+    "Bytes Sent",
+    "Bytes Received",
+    "Packets",
+    "Elapsed Time (sec)",
+    "pkts_sent",
+    "pkts_received"
+  ],
+  "column_dtypes": {
+    "Source Port": "uint16",
+    "Destination Port": "uint16",
+    "NAT Source Port": "uint32",
+    "NAT Destination Port": "uint16",
+    "Action": "category",
+    "Bytes": "uint16",
+    "Bytes Sent": "uint16",
+    "Bytes Received": "uint16",
+    "Packets": "uint8",
+    "Elapsed Time (sec)": "int64",
+    "pkts_sent": "uint8",
+    "pkts_received": "uint8"
+  }
+}

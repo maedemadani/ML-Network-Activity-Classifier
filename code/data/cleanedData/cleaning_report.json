@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "project": "Network Activity Classification Pipeline",
+    "phase": "Data Cleaning - Phase 1",
+    "timestamp": "2025-10-20T11:49:12.099400",
+    "version": "1.0",
+    "input_file": "/Users/moji/Documents/web-dev/AI/ai project/ML-Network-Activity-Classifier/code/data/network_logs.csv",
+    "output_file": "data/cleanedData/network_logs_cleaned.csv",
+    "cleaning_parameters": {
+      "outlier_method": "remove",
+      "allow_negative_cols": []
+    },
+    "execution_environment": {
+      "python_version": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "pandas_version": "2.3.3",
+      "numpy_version": "2.3.4"
+    }
+  },
+  "execution_summary": {
+    "status": "completed_successfully",
+    "original_dataset": {
+      "rows": 65532,
+      "columns": 12,
+      "memory_bytes": 9802360
+    },
+    "cleaned_dataset": {
+      "rows": 29599,
+      "columns": 12,
+      "memory_bytes": 1065856
+    },
+    "reduction_metrics": {
+      "rows_removed": 35933,
+      "rows_removed_percentage": 54.83275346395654,
+      "memory_saved_bytes": 8736504,
+      "memory_reduction_percentage": 89.12653687479342
+    }
+  },
+  "data_quality_metrics": {
+    "completeness_score": 100.0,
+    "consistency_score": 100.0,
+    "validity_score": 100.0,
+    "uniqueness_score": 100.0,
+    "overall_quality_score": 100.0,
+    "quality_grades": {
+      "completeness": "A+",
+      "consistency": "A+",
+      "validity": "A+",
+      "overall": "A+"
+    }
+  },
+  "cleaning_operations": {
+    "duplicate_removal": {
+      "rows_removed": 8362,
+      "remaining_duplicates": 0,
+      "effectiveness": "complete"
+    },
+    "missing_values_handling": {
+      "total_missing_before": 0,
+      "total_missing_after": 0,
+      "missing_resolution_rate": 100.0,
+      "handling_strategy": "auto_imputation",
+      "details": {}
+    },
+    "outlier_management": {
+      "total_columns_analyzed": 11,
+      "total_outliers_detected": 90481,
+      "outlier_percentage": 27.78994376345638,
+      "outlier_management_strategy": "remove",
+      "columns_with_outliers": [
+        {
+          "column": "Source Port",
+          "outlier_count": 6856,
+          "outlier_percentage": 11.992303655763513,
+          "normal_range": [
+            35764.0,
+            72260.0
+          ],
+          "actual_range": [
+            0,
+            65534
+          ]
+        },
+        {
+          "column": "Destination Port",
+          "outlier_count": 13457,
+          "outlier_percentage": 23.53856917963967,
+          "normal_range": [
+            -535.0,
+            1033.0
+          ],
+          "actual_range": [
+            0,
+            65535
+          ]
+        },
+        {
+          "column": "NAT Source Port",
+          "outlier_count": 0,
+          "outlier_percentage": 0.0,
+          "normal_range": [
+            -62825.625,
+            104709.375
+          ],
+          "actual_range": [
+            0,
+            65535
+          ]
+        },
+        {
+          "column": "NAT Destination Port",
+          "outlier_count": 5845,
+          "outlier_percentage": 10.223893650516006,
+          "normal_range": [
+            -664.5,
+            1107.5
+          ],
+          "actual_range": [
+            0,
+            65535
+          ]
+        },
+        {
+          "column": "Bytes",
+          "outlier_count": 11945,
+          "outlier_percentage": 20.893825432919364,
+          "normal_range": [
+            -1533.5,
+            2742.5
+          ],
+          "actual_range": [
+            60,
+            1269359015
+          ]
+        },
+        {
+          "column": "Bytes Sent",
+          "outlier_count": 11002,
+          "outlier_percentage": 19.244358929508483,
+          "normal_range": [
+            -587.0,
+            1165.0
+          ],
+          "actual_range": [
+            60,
+            948477220
+          ]
+        },
+        {
+          "column": "Bytes Received",
+          "outlier_count": 11164,
+          "outlier_percentage": 19.527724330942803,
+          "normal_range": [
+            -1003.5,
+            1672.5
+          ],
+          "actual_range": [
+            0,
+            320881795
+          ]
+        },
+        {
+          "column": "Packets",
+          "outlier_count": 7123,
+          "outlier_percentage": 12.459331817386742,
+          "normal_range": [
+            -12.5,
+            23.5
+          ],
+          "actual_range": [
+            1,
+            1036116
+          ]
+        },
+        {
+          "column": "Elapsed Time (sec)",
+          "outlier_count": 7797,
+          "outlier_percentage": 13.638271820885079,
+          "normal_range": [
+            -46.5,
+            77.5
+          ],
+          "actual_range": [
+            0,
+            10824
+          ]
+        },
+        {
+          "column": "pkts_sent",
+          "outlier_count": 7653,
+          "outlier_percentage": 13.386391464054572,
+          "normal_range": [
+            -5.0,
+            11.0
+          ],
+          "actual_range": [
+            1,
+            747520
+          ]
+        },
+        {
+          "column": "pkts_received",
+          "outlier_count": 7639,
+          "outlier_percentage": 13.361903096029387,
+          "normal_range": [
+            -6.0,
+            10.0
+          ],
+          "actual_range": [
+            0,
+            327208
+          ]
+        }
+      ]
+    },
+    "data_type_optimization": {
+      "columns_optimized": 11,
+      "conversions": {
+        "Source Port": {
+          "from": "int64",
+          "to": "uint16",
+          "reason": "numeric_optimization"
+        },
+        "Destination Port": {
+          "from": "int64",
+          "to": "uint16",
+          "reason": "numeric_optimization"
+        },
+        "NAT Source Port": {
+          "from": "int64",
+          "to": "uint32",
+          "reason": "numeric_optimization"
+        },
+        "NAT Destination Port": {
+          "from": "int64",
+          "to": "uint16",
+          "reason": "numeric_optimization"
+        },
+        "Action": {
+          "from": "object",
+          "to": "category",
+          "reason": "low_cardinality"
+        },
+        "Bytes": {
+          "from": "int64",
+          "to": "uint16",
+          "reason": "numeric_optimization"
+        },
+        "Bytes Sent": {
+          "from": "int64",
+          "to": "uint16",
+          "reason": "numeric_optimization"
+        },
+        "Bytes Received": {
+          "from": "int64",
+          "to": "uint16",
+          "reason": "numeric_optimization"
+        },
+        "Packets": {
+          "from": "int64",
+          "to": "uint8",
+          "reason": "numeric_optimization"
+        },
+        "pkts_sent": {
+          "from": "int64",
+          "to": "uint8",
+          "reason": "numeric_optimization"
+        },
+        "pkts_received": {
+          "from": "int64",
+          "to": "uint8",
+          "reason": "numeric_optimization"
+        }
+      },
+      "memory_impact_bytes": 8736504
+    },
+    "invalid_data_removal": {
+      "rows_removed": 0,
+      "types_found": [
+        "negative_values",
+        "out_of_range_ports"
+      ]
+    }
+  },
+  "column_analysis": {
+    "summary": {
+      "total_columns": 12,
+      "numeric_columns": 11,
+      "categorical_columns": 1,
+      "datetime_columns": 0,
+      "outlier_columns": 0
+    },
+    "per_column_details": {
+      "Source Port": {
+        "data_type": "uint16",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 13695,
+          "percentage": 46.26845501537214
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 35797.0,
+          "max": 65534.0,
+          "mean": 56290.11213216663,
+          "median": 56265.0,
+          "std": 6005.217122259601,
+          "q1": 51826.0,
+          "q3": 61025.0
+        }
+      },
+      "Destination Port": {
+        "data_type": "uint16",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 37,
+          "percentage": 0.1250042231156458
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 1.0,
+          "max": 1033.0,
+          "mean": 229.7891144971114,
+          "median": 53.0,
+          "std": 196.3181805569384,
+          "q1": 53.0,
+          "q3": 445.0
+        }
+      },
+      "NAT Source Port": {
+        "data_type": "uint32",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 16136,
+          "percentage": 54.51535524848813
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 0.0,
+          "max": 65535.0,
+          "mean": 20021.806547518496,
+          "median": 11034.0,
+          "std": 22062.18782636021,
+          "q1": 0.0,
+          "q3": 39556.0
+        }
+      },
+      "NAT Destination Port": {
+        "data_type": "uint16",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 25,
+          "percentage": 0.08446231291597689
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 0.0,
+          "max": 1033.0,
+          "mean": 53.17473563296058,
+          "median": 53.0,
+          "std": 100.54572261521372,
+          "q1": 0.0,
+          "q3": 53.0
+        }
+      },
+      "Action": {
+        "data_type": "category",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 3,
+          "percentage": 0.010135477549917227
+        },
+        "data_category": "text",
+        "categorical_statistics": {
+          "top_values": {
+            "allow": 17636,
+            "drop": 11635,
+            "deny": 328
+          },
+          "value_distribution": {
+            "most_frequent": "allow",
+            "most_frequent_count": 17636,
+            "most_frequent_percentage": 59.58309402344673
+          }
+        }
+      },
+      "Bytes": {
+        "data_type": "uint16",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 1128,
+          "percentage": 3.810939558768877
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 60.0,
+          "max": 2742.0,
+          "mean": 235.7304976519477,
+          "median": 177.0,
+          "std": 290.1666499587539,
+          "q1": 70.0,
+          "q3": 216.0
+        }
+      },
+      "Bytes Sent": {
+        "data_type": "uint16",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 601,
+          "percentage": 2.0304740025000845
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 60.0,
+          "max": 1165.0,
+          "mean": 116.27690124666374,
+          "median": 87.0,
+          "std": 135.10179114199187,
+          "q1": 70.0,
+          "q3": 102.0
+        }
+      },
+      "Bytes Received": {
+        "data_type": "uint16",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 773,
+          "percentage": 2.6115747153620057
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 0.0,
+          "max": 1626.0,
+          "mean": 119.45359640528396,
+          "median": 83.0,
+          "std": 195.8650159344782,
+          "q1": 0.0,
+          "q3": 111.0
+        }
+      },
+      "Packets": {
+        "data_type": "uint8",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 20,
+          "percentage": 0.06756985033278151
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 1.0,
+          "max": 20.0,
+          "mean": 2.1939930403054158,
+          "median": 2.0,
+          "std": 2.214875258120253,
+          "q1": 1.0,
+          "q3": 2.0
+        }
+      },
+      "Elapsed Time (sec)": {
+        "data_type": "int64",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 77,
+          "percentage": 0.2601439237812088
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 0.0,
+          "max": 77.0,
+          "mean": 17.50511841616271,
+          "median": 29.0,
+          "std": 15.953312363537686,
+          "q1": 0.0,
+          "q3": 30.0
+        }
+      },
+      "pkts_sent": {
+        "data_type": "uint8",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 11,
+          "percentage": 0.03716341768302983
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 1.0,
+          "max": 11.0,
+          "mean": 1.377749248285415,
+          "median": 1.0,
+          "std": 1.1949250986775066,
+          "q1": 1.0,
+          "q3": 1.0
+        }
+      },
+      "pkts_received": {
+        "data_type": "uint8",
+        "total_values": 29599,
+        "missing_values": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unique_values": {
+          "count": 11,
+          "percentage": 0.03716341768302983
+        },
+        "data_category": "numerical",
+        "numerical_statistics": {
+          "min": 0.0,
+          "max": 10.0,
+          "mean": 0.8162437920200006,
+          "median": 1.0,
+          "std": 1.1269740956941252,
+          "q1": 0.0,
+          "q3": 1.0
+        }
+      }
+    }
+  },
+  "statistical_summary": {
+    "dataset_statistics": {
+      "total_records": 29599,
+      "total_columns": 12,
+      "total_memory_bytes": 1065856,
+      "average_record_size_bytes": 36
+    },
+    "data_type_distribution": {
+      "uint16": 6,
+      "uint32": 1,
+      "category": 1,
+      "uint8": 3,
+      "int64": 1
+    },
+    "quality_indicators": {
+      "null_free_columns": 12,
+      "constant_columns": 0,
+      "high_cardinality_columns": 1
+    }
+  }
+}

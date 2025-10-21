@@ -1,0 +1,845 @@
+{
+  "metadata": {
+    "run_id": "run_20251019_131939",
+    "timestamp": "2025-10-19T13:19:39.224408",
+    "phase": "Final Analysis - Phase 5",
+    "git_info": {
+      "available": false,
+      "error": "Git not available or not a git repository"
+    },
+    "config": {
+      "statistical_alpha": 0.05,
+      "bootstrap_samples": 1000,
+      "selection_criteria": {
+        "f1_minority_mean": 0.6,
+        "min_recall_minority": 0.7,
+        "max_inference_time_ms": 50,
+        "max_model_size_mb": 100
+      },
+      "minority_classes": [
+        1,
+        2
+      ]
+    },
+    "system_info": {
+      "python_version": "3.11.1",
+      "system": "Darwin",
+      "processor": "arm",
+      "machine": "arm64",
+      "executable": "/Users/moji/Documents/web-dev/AI/ai project/ML-Network-Activity-Classifier/code/venv/bin/python3"
+    }
+  },
+  "model_summary": [
+    {
+      "model": "svm",
+      "dataset": "original",
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "f1_weighted": 0.9978917089751647,
+      "precision_macro": 0.9925267799692329,
+      "recall_macro": 0.9443499354188325,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.9016393442622951,
+      "recall_class_1": 0.8333333333333334,
+      "precision_class_1": 0.9821428571428571,
+      "f1_class_2": 0.9978559176672385,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9957210098416773,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268,
+      "f1_minority_mean": 0.9497476309647668,
+      "recall_minority_mean": 0.9166666666666667,
+      "security_score": 0.9464821419526988
+    },
+    {
+      "model": "knn",
+      "dataset": "original",
+      "accuracy": 0.9984797297297298,
+      "f1_macro": 0.9754048830933897,
+      "f1_weighted": 0.9984380500646537,
+      "precision_macro": 0.99325605909294,
+      "recall_macro": 0.9595014505703476,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.928,
+      "recall_class_1": 0.8787878787878788,
+      "precision_class_1": 0.9830508474576272,
+      "f1_class_2": 0.9984981763570049,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9970008568980291,
+      "mean_security_recall": 0.9393939393939394,
+      "security_f1": 0.9640455484302008,
+      "threat_detection_rate": 0.9995821145006268,
+      "f1_minority_mean": 0.9632490881785025,
+      "recall_minority_mean": 0.9393939393939394,
+      "security_score": 0.9609736339291022
+    },
+    {
+      "model": "logistic_regression",
+      "dataset": "original",
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "f1_weighted": 0.9978917089751647,
+      "precision_macro": 0.9925267799692329,
+      "recall_macro": 0.9443499354188325,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.9016393442622951,
+      "recall_class_1": 0.8333333333333334,
+      "precision_class_1": 0.9821428571428571,
+      "f1_class_2": 0.9978559176672385,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9957210098416773,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268,
+      "f1_minority_mean": 0.9497476309647668,
+      "recall_minority_mean": 0.9166666666666667,
+      "security_score": 0.9464821419526988
+    },
+    {
+      "model": "random_forest",
+      "dataset": "original",
+      "accuracy": 0.9971283783783784,
+      "f1_macro": 0.9574432549686341,
+      "f1_weighted": 0.9971796058050426,
+      "precision_macro": 0.9474958518509536,
+      "recall_macro": 0.9681700011383395,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.8759124087591241,
+      "recall_class_1": 0.9090909090909091,
+      "precision_class_1": 0.8450704225352113,
+      "f1_class_2": 0.9965591397849463,
+      "recall_class_2": 0.9957026214009455,
+      "precision_class_2": 0.9974171330176496,
+      "mean_security_recall": 0.9523967652459273,
+      "security_f1": 0.9365612764325565,
+      "threat_detection_rate": 1.0,
+      "f1_minority_mean": 0.9362357742720352,
+      "recall_minority_mean": 0.9523967652459273,
+      "security_score": 0.955453015807185
+    },
+    {
+      "model": "svm",
+      "dataset": "undersampled",
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9664039116175659,
+      "f1_weighted": 0.9978917089751647,
+      "precision_macro": 0.9925267799692329,
+      "recall_macro": 0.9443499354188325,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.9016393442622951,
+      "recall_class_1": 0.8333333333333334,
+      "precision_class_1": 0.9821428571428571,
+      "f1_class_2": 0.9978559176672385,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9957210098416773,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9514290514296411,
+      "threat_detection_rate": 0.9995821145006268,
+      "f1_minority_mean": 0.9497476309647668,
+      "recall_minority_mean": 0.9166666666666667,
+      "security_score": 0.9464821419526988
+    },
+    {
+      "model": "knn",
+      "dataset": "undersampled",
+      "accuracy": 0.9984797297297298,
+      "f1_macro": 0.9754048830933897,
+      "f1_weighted": 0.9984380500646537,
+      "precision_macro": 0.99325605909294,
+      "recall_macro": 0.9595014505703476,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.928,
+      "recall_class_1": 0.8787878787878788,
+      "precision_class_1": 0.9830508474576272,
+      "f1_class_2": 0.9984981763570049,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9970008568980291,
+      "mean_security_recall": 0.9393939393939394,
+      "security_f1": 0.9640455484302008,
+      "threat_detection_rate": 0.9995821145006268,
+      "f1_minority_mean": 0.9632490881785025,
+      "recall_minority_mean": 0.9393939393939394,
+      "security_score": 0.9609736339291022
+    },
+    {
+      "model": "logistic_regression",
+      "dataset": "undersampled",
+      "accuracy": 0.9976351351351351,
+      "f1_macro": 0.9614618256287706,
+      "f1_weighted": 0.9975605642387606,
+      "precision_macro": 0.9812377279891269,
+      "recall_macro": 0.9441609173676087,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.8870967741935484,
+      "recall_class_1": 0.8333333333333334,
+      "precision_class_1": 0.9482758620689655,
+      "f1_class_2": 0.9978559176672385,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9957210098416773,
+      "mean_security_recall": 0.9166666666666667,
+      "security_f1": 0.9435220255171932,
+      "threat_detection_rate": 0.9995821145006268,
+      "f1_minority_mean": 0.9424763459303934,
+      "recall_minority_mean": 0.9166666666666667,
+      "security_score": 0.9435736279389495
+    },
+    {
+      "model": "random_forest",
+      "dataset": "undersampled",
+      "accuracy": 0.9971283783783784,
+      "f1_macro": 0.9574432549686341,
+      "f1_weighted": 0.9971796058050426,
+      "precision_macro": 0.9474958518509536,
+      "recall_macro": 0.9681700011383395,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.8759124087591241,
+      "recall_class_1": 0.9090909090909091,
+      "precision_class_1": 0.8450704225352113,
+      "f1_class_2": 0.9965591397849463,
+      "recall_class_2": 0.9957026214009455,
+      "precision_class_2": 0.9974171330176496,
+      "mean_security_recall": 0.9523967652459273,
+      "security_f1": 0.9365612764325565,
+      "threat_detection_rate": 1.0,
+      "f1_minority_mean": 0.9362357742720352,
+      "recall_minority_mean": 0.9523967652459273,
+      "security_score": 0.955453015807185
+    },
+    {
+      "model": "svm",
+      "dataset": "oversampled",
+      "accuracy": 0.997804054054054,
+      "f1_macro": 0.9644768153676404,
+      "f1_weighted": 0.9977442706426212,
+      "precision_macro": 0.9816245174048529,
+      "recall_macro": 0.9492114224181137,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.896,
+      "recall_class_1": 0.8484848484848485,
+      "precision_class_1": 0.9491525423728814,
+      "f1_class_2": 0.9978559176672385,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9957210098416773,
+      "mean_security_recall": 0.9242424242424243,
+      "security_f1": 0.9477272893249751,
+      "threat_detection_rate": 1.0,
+      "f1_minority_mean": 0.9469279588336192,
+      "recall_minority_mean": 0.9242424242424243,
+      "security_score": 0.9484681532304176
+    },
+    {
+      "model": "knn",
+      "dataset": "oversampled",
+      "accuracy": 0.9856418918918919,
+      "f1_macro": 0.8556840249796321,
+      "f1_weighted": 0.9880924691526487,
+      "precision_macro": 0.8096654267193246,
+      "recall_macro": 0.9585267501691956,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.5853658536585366,
+      "recall_class_1": 0.9090909090909091,
+      "precision_class_1": 0.4316546762589928,
+      "f1_class_2": 0.9821116928446771,
+      "recall_class_2": 0.9673399226471853,
+      "precision_class_2": 0.997341603898981,
+      "mean_security_recall": 0.9382154158690472,
+      "security_f1": 0.8112151838571467,
+      "threat_detection_rate": 1.0,
+      "f1_minority_mean": 0.7837387732516068,
+      "recall_minority_mean": 0.9382154158690472,
+      "security_score": 0.8887816756482616
+    },
+    {
+      "model": "logistic_regression",
+      "dataset": "oversampled",
+      "accuracy": 0.9979729729729729,
+      "f1_macro": 0.9669327055438712,
+      "f1_weighted": 0.9979093479780375,
+      "precision_macro": 0.9870794170736626,
+      "recall_macro": 0.9493059314437255,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.9032258064516129,
+      "recall_class_1": 0.8484848484848485,
+      "precision_class_1": 0.9655172413793104,
+      "f1_class_2": 0.9978559176672385,
+      "recall_class_2": 1.0,
+      "precision_class_2": 0.9957210098416773,
+      "mean_security_recall": 0.9242424242424243,
+      "security_f1": 0.9515965013044944,
+      "threat_detection_rate": 1.0,
+      "f1_minority_mean": 0.9505408620594257,
+      "recall_minority_mean": 0.9242424242424243,
+      "security_score": 0.9499133145207401
+    },
+    {
+      "model": "random_forest",
+      "dataset": "oversampled",
+      "accuracy": 0.9641891891891892,
+      "f1_macro": 0.7713138284883937,
+      "f1_weighted": 0.9741795237582812,
+      "precision_macro": 0.7409147869674184,
+      "recall_macro": 0.9402370402444848,
+      "inference_time_ms": 0,
+      "model_size_mb": 0,
+      "f1_class_1": 0.3614457831325301,
+      "recall_class_1": 0.9090909090909091,
+      "precision_class_1": 0.22556390977443608,
+      "f1_class_2": 0.9526374859708193,
+      "recall_class_2": 0.9119037387193811,
+      "precision_class_2": 0.9971804511278195,
+      "mean_security_recall": 0.910497323905145,
+      "security_f1": 0.7315380575794775,
+      "threat_detection_rate": 1.0,
+      "f1_minority_mean": 0.6570416345516747,
+      "recall_minority_mean": 0.910497323905145,
+      "security_score": 0.827015583382728
+    }
+  ],
+  "statistical_analysis": {
+    "bootstrap": {
+      "f1_minority_mean": {
+        "mean": 0.9107448493685077,
+        "std": 0.08933658642897002,
+        "ci_lower": 0.8593322327318922,
+        "ci_upper": 0.9515947439298177,
+        "confidence_level": 0.95
+      },
+      "security_score": {
+        "mean": 0.9358376733376473,
+        "std": 0.03746896755730621,
+        "ci_lower": 0.9103197165856254,
+        "ci_upper": 0.9523160072447966,
+        "confidence_level": 0.95
+      },
+      "accuracy": {
+        "mean": 0.9940315315315315,
+        "std": 0.009613631956009235,
+        "ci_lower": 0.9883157376126128,
+        "ci_upper": 0.9979870495495494,
+        "confidence_level": 0.95
+      }
+    },
+    "pairwise": {
+      "svm": {
+        "original_vs_undersampled": {
+          "strategy1": "original",
+          "strategy2": "undersampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9497476309647668,
+              "undersampled_value": 0.9497476309647668,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.9464821419526988,
+              "undersampled_value": 0.9464821419526988,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9979729729729729,
+              "undersampled_value": 0.9979729729729729,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            }
+          ]
+        },
+        "original_vs_oversampled": {
+          "strategy1": "original",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9497476309647668,
+              "oversampled_value": 0.9469279588336192,
+              "difference": 0.0028196721311475326,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.9464821419526988,
+              "oversampled_value": 0.9484681532304176,
+              "difference": -0.001986011277718802,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 1.9860112777188021
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9979729729729729,
+              "oversampled_value": 0.997804054054054,
+              "difference": 0.00016891891891890332,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 0.16891891891890332
+            }
+          ]
+        },
+        "undersampled_vs_oversampled": {
+          "strategy1": "undersampled",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "undersampled_value": 0.9497476309647668,
+              "oversampled_value": 0.9469279588336192,
+              "difference": 0.0028196721311475326,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "undersampled_value": 0.9464821419526988,
+              "oversampled_value": 0.9484681532304176,
+              "difference": -0.001986011277718802,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 1.9860112777188021
+            },
+            {
+              "metric": "accuracy",
+              "undersampled_value": 0.9979729729729729,
+              "oversampled_value": 0.997804054054054,
+              "difference": 0.00016891891891890332,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 0.16891891891890332
+            }
+          ]
+        }
+      },
+      "knn": {
+        "original_vs_undersampled": {
+          "strategy1": "original",
+          "strategy2": "undersampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9632490881785025,
+              "undersampled_value": 0.9632490881785025,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.9609736339291022,
+              "undersampled_value": 0.9609736339291022,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9984797297297298,
+              "undersampled_value": 0.9984797297297298,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            }
+          ]
+        },
+        "original_vs_oversampled": {
+          "strategy1": "original",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9632490881785025,
+              "oversampled_value": 0.7837387732516068,
+              "difference": 0.17951031492689573,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.9609736339291022,
+              "oversampled_value": 0.8887816756482616,
+              "difference": 0.07219195828084057,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9984797297297298,
+              "oversampled_value": 0.9856418918918919,
+              "difference": 0.012837837837837873,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            }
+          ]
+        },
+        "undersampled_vs_oversampled": {
+          "strategy1": "undersampled",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "undersampled_value": 0.9632490881785025,
+              "oversampled_value": 0.7837387732516068,
+              "difference": 0.17951031492689573,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "undersampled_value": 0.9609736339291022,
+              "oversampled_value": 0.8887816756482616,
+              "difference": 0.07219195828084057,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "undersampled_value": 0.9984797297297298,
+              "oversampled_value": 0.9856418918918919,
+              "difference": 0.012837837837837873,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            }
+          ]
+        }
+      },
+      "logistic_regression": {
+        "original_vs_undersampled": {
+          "strategy1": "original",
+          "strategy2": "undersampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9497476309647668,
+              "undersampled_value": 0.9424763459303934,
+              "difference": 0.007271285034373354,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.9464821419526988,
+              "undersampled_value": 0.9435736279389495,
+              "difference": 0.0029085140137492527,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9979729729729729,
+              "undersampled_value": 0.9976351351351351,
+              "difference": 0.00033783783783780663,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 0.33783783783780663
+            }
+          ]
+        },
+        "original_vs_oversampled": {
+          "strategy1": "original",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9497476309647668,
+              "oversampled_value": 0.9505408620594257,
+              "difference": -0.0007932310946588972,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 0.7932310946588972
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.9464821419526988,
+              "oversampled_value": 0.9499133145207401,
+              "difference": -0.003431172568041374,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9979729729729729,
+              "oversampled_value": 0.9979729729729729,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            }
+          ]
+        },
+        "undersampled_vs_oversampled": {
+          "strategy1": "undersampled",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "undersampled_value": 0.9424763459303934,
+              "oversampled_value": 0.9505408620594257,
+              "difference": -0.008064516129032251,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "undersampled_value": 0.9435736279389495,
+              "oversampled_value": 0.9499133145207401,
+              "difference": -0.006339686581790627,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "undersampled_value": 0.9976351351351351,
+              "oversampled_value": 0.9979729729729729,
+              "difference": -0.00033783783783780663,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 0.33783783783780663
+            }
+          ]
+        }
+      },
+      "random_forest": {
+        "original_vs_undersampled": {
+          "strategy1": "original",
+          "strategy2": "undersampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9362357742720352,
+              "undersampled_value": 0.9362357742720352,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.955453015807185,
+              "undersampled_value": 0.955453015807185,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9971283783783784,
+              "undersampled_value": 0.9971283783783784,
+              "difference": 0.0,
+              "p_value": 1.0,
+              "significant": false,
+              "effect_size": 0.0,
+              "note": "identical_values"
+            }
+          ]
+        },
+        "original_vs_oversampled": {
+          "strategy1": "original",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "original_value": 0.9362357742720352,
+              "oversampled_value": 0.6570416345516747,
+              "difference": 0.27919413972036045,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "original_value": 0.955453015807185,
+              "oversampled_value": 0.827015583382728,
+              "difference": 0.12843743242445704,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "original_value": 0.9971283783783784,
+              "oversampled_value": 0.9641891891891892,
+              "difference": 0.032939189189189255,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            }
+          ]
+        },
+        "undersampled_vs_oversampled": {
+          "strategy1": "undersampled",
+          "strategy2": "oversampled",
+          "compared_metrics": [
+            {
+              "metric": "f1_minority_mean",
+              "undersampled_value": 0.9362357742720352,
+              "oversampled_value": 0.6570416345516747,
+              "difference": 0.27919413972036045,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "security_score",
+              "undersampled_value": 0.955453015807185,
+              "oversampled_value": 0.827015583382728,
+              "difference": 0.12843743242445704,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            },
+            {
+              "metric": "accuracy",
+              "undersampled_value": 0.9971283783783784,
+              "oversampled_value": 0.9641891891891892,
+              "difference": 0.032939189189189255,
+              "p_value": NaN,
+              "significant": false,
+              "effect_size": 2.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "model_selection": {
+    "selected_model": {
+      "model": "knn",
+      "dataset": "original",
+      "metrics": {
+        "accuracy": 0.9984797297297298,
+        "f1_macro": 0.9754048830933897,
+        "f1_minority_mean": 0.9632490881785025,
+        "recall_minority_mean": 0.9393939393939394,
+        "security_score": 0.9609736339291022,
+        "threat_detection_rate": 0.9995821145006268
+      },
+      "minority_class_performance": {
+        "class_1": {
+          "f1": 0.928,
+          "recall": 0.8787878787878788,
+          "precision": 0.9830508474576272
+        },
+        "class_2": {
+          "f1": 0.9984981763570049,
+          "recall": 1.0,
+          "precision": 0.9970008568980291
+        }
+      }
+    },
+    "runner_ups": [
+      {
+        "model": "knn",
+        "dataset": "undersampled",
+        "metrics": {
+          "accuracy": 0.9984797297297298,
+          "f1_macro": 0.9754048830933897,
+          "f1_minority_mean": 0.9632490881785025,
+          "recall_minority_mean": 0.9393939393939394,
+          "security_score": 0.9609736339291022,
+          "threat_detection_rate": 0.9995821145006268
+        },
+        "minority_class_performance": {
+          "class_1": {
+            "f1": 0.928,
+            "recall": 0.8787878787878788,
+            "precision": 0.9830508474576272
+          },
+          "class_2": {
+            "f1": 0.9984981763570049,
+            "recall": 1.0,
+            "precision": 0.9970008568980291
+          }
+        }
+      },
+      {
+        "model": "random_forest",
+        "dataset": "original",
+        "metrics": {
+          "accuracy": 0.9971283783783784,
+          "f1_macro": 0.9574432549686341,
+          "f1_minority_mean": 0.9362357742720352,
+          "recall_minority_mean": 0.9523967652459273,
+          "security_score": 0.955453015807185,
+          "threat_detection_rate": 1.0
+        },
+        "minority_class_performance": {
+          "class_1": {
+            "f1": 0.8759124087591241,
+            "recall": 0.9090909090909091,
+            "precision": 0.8450704225352113
+          },
+          "class_2": {
+            "f1": 0.9965591397849463,
+            "recall": 0.9957026214009455,
+            "precision": 0.9974171330176496
+          }
+        }
+      }
+    ],
+    "selection_criteria_used": {
+      "f1_minority_mean": 0.6,
+      "min_recall_minority": 0.7,
+      "max_inference_time_ms": 50,
+      "max_model_size_mb": 100
+    },
+    "ranking_metrics": [
+      "security_score",
+      "f1_minority_mean",
+      "recall_minority_mean"
+    ],
+    "trade_off_analysis": {
+      "accuracy_tradeoff": 0.0,
+      "f1_macro_tradeoff": 0.0,
+      "security_improvement": 0.025135960591454842,
+      "explanation": "دقت کلی تقریباً بهینه است. F1 کلی تقریباً بهینه است. تعادل خوبی بین امنیت و دقت کلی برقرار است"
+    }
+  },
+  "run_directory": "/Users/moji/Documents/web-dev/AI/ai project/ML-Network-Activity-Classifier/code/final_report/run_20251019_131939"
+}

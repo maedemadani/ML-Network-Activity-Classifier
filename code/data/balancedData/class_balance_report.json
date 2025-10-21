@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "phase": "Class Balancing - Phase 3",
+    "timestamp": "2025-10-20T11:49:30.580604",
+    "config": {
+      "test_size": 0.2,
+      "rare_class_threshold": 0.005,
+      "random_state": 42
+    },
+    "statistics": {
+      "total_samples": 23679,
+      "num_classes": 3,
+      "test_samples": 4735,
+      "train_samples": 18943
+    }
+  },
+  "class_analysis": {
+    "class_counts": {
+      "0": 14109,
+      "2": 9308,
+      "1": 262
+    },
+    "class_percentages": {
+      "0": 59.58,
+      "2": 39.31,
+      "1": 1.11
+    },
+    "rare_classes": [],
+    "imbalance_metrics": {
+      "imbalance_ratio": 53.85,
+      "gini_coefficient": 0.3899,
+      "total_samples": 23679,
+      "num_classes": 3
+    },
+    "recommendations": [
+      "⚖️  عدم تعادل شدید - پیشنهاد: ترکیب Oversampling و Undersampling"
+    ]
+  },
+  "sampling_strategies": {
+    "undersampling": {
+      "strategy": {
+        "0": 9308
+      },
+      "parameters": {
+        "sampling_strategy": {
+          "0": 9308,
+          "2": 9308,
+          "1": 9308
+        },
+        "k_neighbors_config": {
+          "1": 5
+        },
+        "strategy_type": "high",
+        "imbalance_ratio": 53.85114503816794
+      }
+    },
+    "oversampling": {
+      "strategy": {
+        "1": 9308
+      },
+      "method": "SMOTE",
+      "parameters": {
+        "sampling_strategy": {
+          "0": 9308,
+          "2": 9308,
+          "1": 9308
+        },
+        "k_neighbors_config": {
+          "1": 5
+        },
+        "strategy_type": "high",
+        "imbalance_ratio": 53.85114503816794
+      },
+      "problematic_classes": []
+    }
+  },
+  "validation_results": {
+    "original": {
+      "basic_checks": {
+        "has_nulls": false,
+        "shape_consistent": true,
+        "data_types_consistent": true,
+        "class_diversity": true,
+        "all_passed": true
+      },
+      "distribution_checks": {
+        "original_imbalance_ratio": 53.85114503816794,
+        "balanced_imbalance_ratio": 53.85114503816794,
+        "improvement_ratio": 1.0,
+        "class_preservation": true,
+        "min_samples_per_class": true
+      },
+      "quality_checks": {
+        "synthetic_samples": 0,
+        "quality_score": 1.0
+      },
+      "leakage_checks": {
+        "is_proper_subset": true,
+        "no_data_leakage": true
+      },
+      "actual_null_status": {
+        "x_nulls": 0,
+        "y_nulls": 0,
+        "has_nulls_actual": false
+      }
+    },
+    "undersampled": {
+      "basic_checks": {
+        "has_nulls": false,
+        "shape_consistent": true,
+        "data_types_consistent": true,
+        "class_diversity": true,
+        "all_passed": true
+      },
+      "distribution_checks": {
+        "original_imbalance_ratio": 53.85114503816794,
+        "balanced_imbalance_ratio": 35.52671755725191,
+        "improvement_ratio": 1.5157928663515257,
+        "class_preservation": true,
+        "min_samples_per_class": true
+      },
+      "quality_checks": {
+        "feature_variance": 0.6156947113802983,
+        "correlation_structure": 0.45685073831408024,
+        "outlier_ratio": 0.15266447716919165,
+        "synthetic_quality": "unknown"
+      },
+      "leakage_checks": {
+        "is_proper_subset": true,
+        "no_data_leakage": true
+      },
+      "actual_null_status": {
+        "x_nulls": 0,
+        "y_nulls": 0,
+        "has_nulls_actual": false
+      }
+    },
+    "oversampled": {
+      "basic_checks": {
+        "has_nulls": false,
+        "shape_consistent": true,
+        "data_types_consistent": true,
+        "class_diversity": true,
+        "all_passed": true
+      },
+      "distribution_checks": {
+        "original_imbalance_ratio": 53.85114503816794,
+        "balanced_imbalance_ratio": 1.5157928663515257,
+        "improvement_ratio": 35.52671755725191,
+        "class_preservation": true,
+        "min_samples_per_class": true
+      },
+      "quality_checks": {
+        "feature_variance": 0.7055331279552859,
+        "correlation_structure": 0.4383891380632901,
+        "outlier_ratio": 0.16464476699770816,
+        "synthetic_quality": "unknown"
+      },
+      "leakage_checks": {
+        "is_proper_subset": true,
+        "no_data_leakage": true
+      },
+      "actual_null_status": {
+        "x_nulls": 0,
+        "y_nulls": 0,
+        "has_nulls_actual": false
+      }
+    }
+  },
+  "performance_metrics": {
+    "undersampled": {
+      "imbalance_improvement": 1.52,
+      "quality_score": 1.0,
+      "recommended_for": "داده‌های با حجم زیاد و زمان آموزش کوتاه"
+    },
+    "oversampled": {
+      "imbalance_improvement": 35.53,
+      "quality_score": 1.0,
+      "recommended_for": "داده‌های با عدم تعادل شدید و اهمیت کلاس‌های اقلیت"
+    }
+  },
+  "recommendations": [
+    "🎯 عدم تعادل شدید - پیشنهاد: استفاده از ترکیب Ensemble + Class Weights",
+    "✅ از SMOTE برای تولید نمونه‌های مصنوعی استفاده شد",
+    "✅ استراتژی original تمام بررسی‌های پایه را گذراند",
+    "✅ استراتژی undersampled تمام بررسی‌های پایه را گذراند",
+    "✅ استراتژی oversampled تمام بررسی‌های پایه را گذراند",
+    "🔮 برای فاز ۴: تست تمام استراتژی‌ها و انتخاب بهترین بر اساس Recall کلاس‌های اقلیت"
+  ],
+  "next_steps": [
+    "🎯 فاز ۴: آموزش مدل‌ها روی هر سه استراتژی (Original, Undersampled, Oversampled)",
+    "📊 ارزیابی مدل‌ها بر اساس Recall کلاس‌های اقلیت (drop, deny)",
+    "🔍 مقایسه عملکرد مدل‌ها روی Test set دست‌نخورده",
+    "🏆 انتخاب بهترین استراتژی بر اساس معیارهای امنیتی",
+    "💾 ذخیره مدل نهایی برای deployment"
+  ]
+}
