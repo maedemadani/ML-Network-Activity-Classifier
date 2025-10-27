@@ -53,32 +53,30 @@ class Phase4ModelTraining:
             for strategy_name in train_strategies.keys():
                 self.trainer.save_models(base_models, {}, strategy_name)
 
-            # ۴. تنظیم هایپرپارامترها (روی oversampled)
-            print("\n⚙️  مرحله ۴: تنظیم هایپرپارامترها...")
+            # ⚙️ مرحله ۴: تنظیم هایپرپارامترها فقط برای RF و SVM روی oversampled داده
+            print("\n⚙️  مرحله ۴: تنظیم هایپرپارامترها (فقط RF و SVM روی Oversampling)...")
             if 'oversampled' in train_strategies:
                 X_train_over, y_train_over = train_strategies['oversampled']
                 tuned_models, tuning_results = self.trainer.hyperparameter_tuning(
-                    X_train_over, y_train_over, 'oversampled'
+                    X_train_over, y_train_over, 'oversampled',
+                    model_names=['svm', 'random_forest']  # ✅ محدود به دو مدل
                 )
                 self.results['tuning_results'] = tuning_results
 
-                #  ذخیره‌سازی مدل‌های تنظیم‌شده
+                # ذخیره‌سازی مدل‌های تنظیم‌شده
                 print("\n💾 ذخیره‌سازی مدل‌های تنظیم‌شده...")
                 self.trainer.save_models({}, tuned_models, 'oversampled')
             else:
                 tuned_models = {}
-                print("   ⚠️  داده oversampled برای تنظیم یافت نشد")
+                print("   ⚠️  داده Oversampling برای تنظیم یافت نشد")
 
-
-            # ۵. ذخیره‌سازی مدل‌ها
-            print("\n💾 مرحله ۵: ذخیره‌سازی مدل‌ها...")
-            self.trainer.save_models(base_models, tuned_models, 'oversampled')
-
-            # ۶. ارزیابی مدل‌ها
+            # 📈 مرحله ۶: ارزیابی مدل‌ها روی تست set + رسم ماتریس سردرگمی
             print("\n📈 مرحله ۶: ارزیابی مدل‌ها روی تست set...")
             evaluation_results = {}
             for strategy_name in train_strategies.keys():
                 strategy_eval = self.evaluator.evaluate_models(X_test, y_test, strategy_name)
+                # ✅ رسم ماتریس سردرگمی برای هر مدل
+                self.evaluator.plot_confusion_matrices(strategy_eval, y_test, strategy_name)
                 evaluation_results[strategy_name] = strategy_eval
 
             self.results['evaluation_results'] = evaluation_results
@@ -105,32 +103,34 @@ class Phase4ModelTraining:
             return {}
 
     def _load_train_data(self, data_path: Path) -> Dict[str, Tuple[pd.DataFrame, pd.Series]]:
-        """بارگذاری داده‌های آموزش از استراتژی‌های مختلف"""
-        strategies = ['original', 'undersampled', 'oversampled']
+        """بارگذاری داده‌های آموزش از پوشه‌های موجود"""
         train_data = {}
-
-        for strategy in strategies:
-            strategy_path = data_path / strategy
+        # detect all subfolders except 'test'
+        for strategy_path in data_path.iterdir():
+            if not strategy_path.is_dir() or strategy_path.name.lower() == "test":
+                continue
             X_path = strategy_path / "X_train.csv"
             y_path = strategy_path / "y_train.csv"
-
             if X_path.exists() and y_path.exists():
                 X_train = pd.read_csv(X_path)
-                y_train = pd.read_csv(y_path).iloc[:, 0]  # اولین ستون هدف
-                train_data[strategy] = (X_train, y_train)
-                print(f"   ✅ {strategy}: {X_train.shape}")
-            else:
-                print(f"   ⚠️  داده {strategy} یافت نشد")
-
+                y_train = pd.read_csv(y_path).iloc[:, 0]
+                train_data[strategy_path.name] = (X_train, y_train)
+                print(f"   ✅ {strategy_path.name}: {X_train.shape}")
         return train_data
 
     def _load_test_data(self, data_path: Path) -> Tuple[pd.DataFrame, pd.Series]:
-        """بارگذاری داده‌های تست"""
-        test_path = data_path / "test"
+        """بارگذاری داده‌های تست (پوشه‌ی test یا زیرپوشه مشابه)"""
+        # look for any folder containing X_test.csv
+        for folder in data_path.rglob("X_test.csv"):
+            test_path = folder.parent
+            break
+        else:
+            raise FileNotFoundError("❌ هیچ فایل X_test.csv یافت نشد در مسیر داده‌ها")
+
         X_test = pd.read_csv(test_path / "X_test.csv")
         y_test = pd.read_csv(test_path / "y_test.csv").iloc[:, 0]
-
-        print(f"   ✅ Test set: {X_test.shape}")
+        print(f"   ✅ Test set found in: {test_path}")
+        print(f"   ✅ Test set shape: {X_test.shape}")
         return X_test, y_test
 
     def _select_best_model(self, evaluation_results: Dict[str, Any]) -> Dict[str, Any]:

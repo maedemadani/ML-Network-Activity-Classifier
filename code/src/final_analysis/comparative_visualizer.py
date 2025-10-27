@@ -164,3 +164,30 @@ class ComparativeVisualizer:
             plt.tight_layout()
             plt.savefig(output_dir / f'class_{cls}_performance.png', dpi=300, bbox_inches='tight')
             plt.close()
+
+    def create_confusion_matrix_overview(self, cm_folder: Path, output_dir: Path):
+        """ترکیب ماتریس‌های سردرگمی در یک تصویر"""
+        import matplotlib.image as mpimg
+        cm_files = list(cm_folder.glob("cm_*.png"))
+        if not cm_files:
+            print("⚠️  هیچ ماتریس سردرگمی یافت نشد")
+            return
+
+        cols = 3
+        rows = int(np.ceil(len(cm_files) / cols))
+        fig, axes = plt.subplots(rows, cols, figsize=(cols * 5, rows * 5))
+        axes = axes.flatten()
+
+        for ax, img_path in zip(axes, cm_files):
+            img = mpimg.imread(img_path)
+            ax.imshow(img)
+            ax.set_title(img_path.stem, fontsize=9)
+            ax.axis('off')
+
+        for ax in axes[len(cm_files):]:
+            ax.axis('off')
+
+        plt.tight_layout()
+        plt.savefig(output_dir / "confusion_matrix_overview.png", dpi=300, bbox_inches='tight')
+        plt.close()
+        print("✅ ماتریس‌های سردرگمی ترکیب و ذخیره شدند")

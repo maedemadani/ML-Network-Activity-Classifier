@@ -1,0 +1,93 @@
+{
+  "selected_model": {
+    "model": "knn",
+    "dataset": "oversampling",
+    "metrics": {
+      "accuracy": 0.9980890287769785,
+      "f1_macro": 0.9694032146285319,
+      "f1_minority_mean": 0.9551718234324962,
+      "recall_minority_mean": 0.9488363663998971,
+      "security_score": 0.9616032759329574,
+      "threat_detection_rate": 1.0
+    },
+    "minority_class_performance": {
+      "class_1": {
+        "f1": 0.9119170984455959,
+        "recall": 0.8979591836734694,
+        "precision": 0.9263157894736842
+      },
+      "class_2": {
+        "f1": 0.9984265484193964,
+        "recall": 0.9997135491263248,
+        "precision": 0.9971428571428571
+      }
+    }
+  },
+  "runner_ups": [
+    {
+      "model": "logistic_regression",
+      "dataset": "undersampling",
+      "metrics": {
+        "accuracy": 0.9980890287769785,
+        "f1_macro": 0.9696131504809893,
+        "f1_minority_mean": 0.9554498511784553,
+        "recall_minority_mean": 0.9285714285714286,
+        "security_score": 0.9536085118999535,
+        "threat_detection_rate": 1.0
+      },
+      "minority_class_performance": {
+        "class_1": {
+          "f1": 0.9130434782608695,
+          "recall": 0.8571428571428571,
+          "precision": 0.9767441860465116
+        },
+        "class_2": {
+          "f1": 0.9978562240960411,
+          "recall": 1.0,
+          "precision": 0.9957216200798631
+        }
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "dataset": "oversampling",
+      "metrics": {
+        "accuracy": 0.9980890287769785,
+        "f1_macro": 0.9696131504809893,
+        "f1_minority_mean": 0.9554498511784553,
+        "recall_minority_mean": 0.9285714285714286,
+        "security_score": 0.9536085118999535,
+        "threat_detection_rate": 1.0
+      },
+      "minority_class_performance": {
+        "class_1": {
+          "f1": 0.9130434782608695,
+          "recall": 0.8571428571428571,
+          "precision": 0.9767441860465116
+        },
+        "class_2": {
+          "f1": 0.9978562240960411,
+          "recall": 1.0,
+          "precision": 0.9957216200798631
+        }
+      }
+    }
+  ],
+  "selection_criteria_used": {
+    "f1_minority_mean": 0.6,
+    "min_recall_minority": 0.7,
+    "max_inference_time_ms": 50,
+    "max_model_size_mb": 100
+  },
+  "ranking_metrics": [
+    "security_score",
+    "f1_minority_mean",
+    "recall_minority_mean"
+  ],
+  "trade_off_analysis": {
+    "accuracy_tradeoff": 0.0,
+    "f1_macro_tradeoff": 0.0002099358524574324,
+    "security_improvement": 0.0159445628494711,
+    "explanation": "دقت کلی تقریباً بهینه است. F1 کلی تقریباً بهینه است. تعادل خوبی بین امنیت و دقت کلی برقرار است"
+  }
+}

@@ -282,3 +282,34 @@ class ModelEvaluator:
         plt.tight_layout()
         plt.savefig(output_dir / 'model_comparison_charts.png', dpi=300, bbox_inches='tight')
         plt.close()
+
+
+    def plot_confusion_matrices(self, evaluation_results: Dict[str, Any],
+                                y_true: pd.Series, strategy_name: str):
+        """رسم و ذخیره ماتریس‌های سردرگمی برای تمام مدل‌ها"""
+        output_dir = Path(self.config.MODEL_SAVE_PATHS['evaluation']) / "confusion_matrices"
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        for model_name, result in evaluation_results.items():
+            if 'general_metrics' not in result:
+                continue
+            try:
+                y_pred = np.array(result['predictions']['y_pred'])
+                cm = confusion_matrix(y_true, y_pred)
+                labels = np.unique(y_true)
+
+                plt.figure(figsize=(6, 5))
+                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                            xticklabels=labels, yticklabels=labels)
+                plt.xlabel('Predicted')
+                plt.ylabel('True')
+                plt.title(f'Confusion Matrix - {strategy_name} | {model_name}')
+                plt.tight_layout()
+
+                save_path = output_dir / f"cm_{strategy_name}_{model_name}.png"
+                plt.savefig(save_path, dpi=300, bbox_inches='tight')
+                plt.close()
+                print(f"   💾 Confusion matrix saved: {save_path.name}")
+
+            except Exception as e:
+                print(f"⚠️  خطا در رسم ماتریس سردرگمی برای {model_name}: {e}")

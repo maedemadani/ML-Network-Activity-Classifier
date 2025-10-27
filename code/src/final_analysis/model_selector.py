@@ -66,9 +66,10 @@ class ModelSelector:
         """رتبه‌بندی مدل‌ها"""
         # محاسبه امتیاز نهایی
         df['final_score'] = (
-                df['security_score'] * 0.5 +
+                df['security_score'] * 0.4 +
                 df['f1_minority_mean'] * 0.3 +
-                df['recall_minority_mean'] * 0.2
+                df['recall_minority_mean'] * 0.2 +
+                df['threat_detection_rate'] * 0.1
         )
 
         # رتبه‌بندی نزولی

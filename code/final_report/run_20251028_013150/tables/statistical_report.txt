@@ -1,0 +1,111 @@
+============================================================
+گزارش تحلیل آماری نتایج مدل‌ها
+============================================================
+
+فاصله اطمینان بوت‌استرپ (۹۵٪):
+  f1_minority_mean:
+    میانگین: 0.937
+    انحراف معیار: 0.029
+    فاصله اطمینان: [0.918, 0.950]
+
+  security_score:
+    میانگین: 0.946
+    انحراف معیار: 0.011
+    فاصله اطمینان: [0.939, 0.951]
+
+  mean_security_recall:
+    میانگین: 0.927
+    انحراف معیار: 0.017
+    فاصله اطمینان: [0.917, 0.936]
+
+  security_f1:
+    میانگین: 0.940
+    انحراف معیار: 0.026
+    فاصله اطمینان: [0.924, 0.951]
+
+  accuracy:
+    میانگین: 0.997
+    انحراف معیار: 0.002
+    فاصله اطمینان: [0.996, 0.998]
+
+آزمون‌های زوجی بین استراتژی‌ها:
+
+  مدل svm:
+    مقایسه baseline_vs_undersampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه baseline_vs_oversampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه undersampling_vs_oversampling:
+      f1_minority_mean: مقادیر یکسان
+      security_score: مقادیر یکسان
+      mean_security_recall: مقادیر یکسان
+      security_f1: مقادیر یکسان
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+
+  مدل knn:
+    مقایسه baseline_vs_undersampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه baseline_vs_oversampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه undersampling_vs_oversampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+
+  مدل logistic_regression:
+    مقایسه baseline_vs_undersampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه baseline_vs_oversampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه undersampling_vs_oversampling:
+      f1_minority_mean: مقادیر یکسان
+      security_score: مقادیر یکسان
+      mean_security_recall: مقادیر یکسان
+      security_f1: مقادیر یکسان
+      accuracy: مقادیر یکسان
+
+  مدل random_forest:
+    مقایسه baseline_vs_undersampling:
+      f1_minority_mean: مقادیر یکسان
+      security_score: مقادیر یکسان
+      mean_security_recall: مقادیر یکسان
+      security_f1: مقادیر یکسان
+      accuracy: مقادیر یکسان
+    مقایسه baseline_vs_oversampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)
+    مقایسه undersampling_vs_oversampling:
+      f1_minority_mean: p-value=nan (❌ غیر معنی‌دار)
+      security_score: p-value=nan (❌ غیر معنی‌دار)
+      mean_security_recall: p-value=nan (❌ غیر معنی‌دار)
+      security_f1: p-value=nan (❌ غیر معنی‌دار)
+      accuracy: p-value=nan (❌ غیر معنی‌دار)

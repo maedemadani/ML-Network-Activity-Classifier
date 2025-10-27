@@ -1,18 +1,21 @@
 from dataclasses import dataclass
 from typing import Dict, List, Any
 
-
 @dataclass
 class BalanceConfig:
     """پیکربندی عمومی برای مدیریت عدم تعادل کلاس‌ها"""
 
     # پارامترهای تقسیم داده
-    TEST_SIZE: float = 0.2
+    TEST_SIZE: float = 0.3
     RANDOM_STATE: int = 42
 
     # آستانه‌های کلاس نادر
-    RARE_CLASS_THRESHOLD: float = 0.005  # 0.5%
-    MIN_SAMPLES_FOR_SMOTE: int = 2
+    RARE_CLASS_THRESHOLD: float = 0.005   # 0.5% از کل داده
+    MIN_SAMPLES_FOR_SMOTE: int = 5
+
+    # ضرایب پویا برای محاسبه‌ی هدف Oversampling و Undersampling
+    ALPHA_GROWTH: int = 8
+    GAMMA_REDUCE: int = 6
 
     # استراتژی‌های نمونه‌برداری
     SAMPLING_STRATEGIES: Dict[str, Any] = None
@@ -27,7 +30,7 @@ class BalanceConfig:
         if self.SAMPLING_STRATEGIES is None:
             self.SAMPLING_STRATEGIES = {
                 'undersampling': {
-                    'strategy': 'auto',  # 'auto', 'median', 'majority'
+                    'strategy': 'auto',
                     'random_state': self.RANDOM_STATE
                 },
                 'oversampling': {

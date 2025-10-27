@@ -2,10 +2,10 @@
   "metadata": {
     "project": "Network Activity Classification Pipeline",
     "phase": "Data Cleaning - Phase 1",
-    "timestamp": "2025-10-20T11:49:12.099400",
+    "timestamp": "2025-10-27T11:45:14.346742",
     "version": "1.0",
     "input_file": "/Users/moji/Documents/web-dev/AI/ai project/ML-Network-Activity-Classifier/code/data/network_logs.csv",
-    "output_file": "data/cleanedData/network_logs_cleaned.csv",
+    "output_file": "/Users/moji/Documents/web-dev/AI/ai project/ML-Network-Activity-Classifier/code/data/cleanedData/network_logs_cleaned.csv",
     "cleaning_parameters": {
       "outlier_method": "remove",
       "allow_negative_cols": []
@@ -24,15 +24,15 @@
       "memory_bytes": 9802360
     },
     "cleaned_dataset": {
-      "rows": 29599,
+      "rows": 29653,
       "columns": 12,
-      "memory_bytes": 1065856
+      "memory_bytes": 1067931
     },
     "reduction_metrics": {
-      "rows_removed": 35933,
-      "rows_removed_percentage": 54.83275346395654,
-      "memory_saved_bytes": 8736504,
-      "memory_reduction_percentage": 89.12653687479342
+      "rows_removed": 35879,
+      "rows_removed_percentage": 54.750350973570164,
+      "memory_saved_bytes": 8734429,
+      "memory_reduction_percentage": 89.10536850309518
     }
   },
   "data_quality_metrics": {
@@ -64,7 +64,7 @@
     "outlier_management": {
       "total_columns_analyzed": 11,
       "total_outliers_detected": 90481,
-      "outlier_percentage": 27.78994376345638,
+      "outlier_percentage": 27.73933650742068,
       "outlier_management_strategy": "remove",
       "columns_with_outliers": [
         {
@@ -271,7 +271,7 @@
           "reason": "numeric_optimization"
         }
       },
-      "memory_impact_bytes": 8736504
+      "memory_impact_bytes": 8734429
     },
     "invalid_data_removal": {
       "rows_removed": 0,
@@ -292,267 +292,268 @@
     "per_column_details": {
       "Source Port": {
         "data_type": "uint16",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 13695,
-          "percentage": 46.26845501537214
+          "count": 13736,
+          "percentage": 46.32246315718477
         },
         "data_category": "numerical",
         "numerical_statistics": {
-          "min": 35797.0,
+          "min": 1024.0,
           "max": 65534.0,
-          "mean": 56290.11213216663,
-          "median": 56265.0,
-          "std": 6005.217122259601,
-          "q1": 51826.0,
-          "q3": 61025.0
+          "mean": 56236.26749401409,
+          "median": 56260.0,
+          "std": 6179.817072692669,
+          "q1": 51790.0,
+          "q3": 61013.0
         }
       },
       "Destination Port": {
         "data_type": "uint16",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 37,
-          "percentage": 0.1250042231156458
+          "count": 52,
+          "percentage": 0.17536168347216133
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 1.0,
-          "max": 1033.0,
-          "mean": 229.7891144971114,
+          "max": 61248.0,
+          "mean": 274.68296631032274,
           "median": 53.0,
-          "std": 196.3181805569384,
+          "std": 1325.5531704009102,
           "q1": 53.0,
           "q3": 445.0
         }
       },
       "NAT Source Port": {
         "data_type": "uint32",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 16136,
-          "percentage": 54.51535524848813
+          "count": 16145,
+          "percentage": 54.446430378039324
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 0.0,
           "max": 65535.0,
-          "mean": 20021.806547518496,
-          "median": 11034.0,
-          "std": 22062.18782636021,
+          "mean": 19997.498701649074,
+          "median": 10954.0,
+          "std": 22058.843437033353,
           "q1": 0.0,
-          "q3": 39556.0
+          "q3": 39518.0
         }
       },
       "NAT Destination Port": {
         "data_type": "uint16",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 25,
-          "percentage": 0.08446231291597689
+          "count": 26,
+          "percentage": 0.08768084173608066
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 0.0,
-          "max": 1033.0,
-          "mean": 53.17473563296058,
+          "max": 3389.0,
+          "mean": 54.44936431389741,
           "median": 53.0,
-          "std": 100.54572261521372,
+          "std": 120.81698055482813,
           "q1": 0.0,
           "q3": 53.0
         }
       },
       "Action": {
         "data_type": "category",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 3,
-          "percentage": 0.010135477549917227
+          "count": 4,
+          "percentage": 0.013489360267089334
         },
         "data_category": "text",
         "categorical_statistics": {
           "top_values": {
             "allow": 17636,
             "drop": 11635,
-            "deny": 328
+            "deny": 328,
+            "reset-both": 54
           },
           "value_distribution": {
             "most_frequent": "allow",
             "most_frequent_count": 17636,
-            "most_frequent_percentage": 59.58309402344673
+            "most_frequent_percentage": 59.47458941759687
           }
         }
       },
       "Bytes": {
         "data_type": "uint16",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 1128,
-          "percentage": 3.810939558768877
+          "count": 1131,
+          "percentage": 3.814116615519509
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 60.0,
           "max": 2742.0,
-          "mean": 235.7304976519477,
+          "mean": 235.58776515023774,
           "median": 177.0,
-          "std": 290.1666499587539,
+          "std": 289.9419603582865,
           "q1": 70.0,
           "q3": 216.0
         }
       },
       "Bytes Sent": {
         "data_type": "uint16",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 601,
-          "percentage": 2.0304740025000845
+          "count": 605,
+          "percentage": 2.0402657403972615
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 60.0,
           "max": 1165.0,
-          "mean": 116.27690124666374,
+          "mean": 116.32337368900279,
           "median": 87.0,
-          "std": 135.10179114199187,
+          "std": 135.00413233800384,
           "q1": 70.0,
           "q3": 102.0
         }
       },
       "Bytes Received": {
         "data_type": "uint16",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
-          "count": 773,
-          "percentage": 2.6115747153620057
+          "count": 774,
+          "percentage": 2.610191211681786
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 0.0,
           "max": 1626.0,
-          "mean": 119.45359640528396,
+          "mean": 119.26439146123495,
           "median": 83.0,
-          "std": 195.8650159344782,
+          "std": 195.74065923622584,
           "q1": 0.0,
           "q3": 111.0
         }
       },
       "Packets": {
         "data_type": "uint8",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
           "count": 20,
-          "percentage": 0.06756985033278151
+          "percentage": 0.06744680133544666
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 1.0,
           "max": 20.0,
-          "mean": 2.1939930403054158,
+          "mean": 2.193032745422048,
           "median": 2.0,
-          "std": 2.214875258120253,
+          "std": 2.213611734475545,
           "q1": 1.0,
           "q3": 2.0
         }
       },
       "Elapsed Time (sec)": {
         "data_type": "int64",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
           "count": 77,
-          "percentage": 0.2601439237812088
+          "percentage": 0.25967018514146967
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 0.0,
           "max": 77.0,
-          "mean": 17.50511841616271,
+          "mean": 17.473476545374837,
           "median": 29.0,
-          "std": 15.953312363537686,
+          "std": 15.955992601388138,
           "q1": 0.0,
           "q3": 30.0
         }
       },
       "pkts_sent": {
         "data_type": "uint8",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
           "count": 11,
-          "percentage": 0.03716341768302983
+          "percentage": 0.03709574073449566
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 1.0,
           "max": 11.0,
-          "mean": 1.377749248285415,
+          "mean": 1.37787070448184,
           "median": 1.0,
-          "std": 1.1949250986775066,
+          "std": 1.1943671298347327,
           "q1": 1.0,
           "q3": 1.0
         }
       },
       "pkts_received": {
         "data_type": "uint8",
-        "total_values": 29599,
+        "total_values": 29653,
         "missing_values": {
           "count": 0,
           "percentage": 0.0
         },
         "unique_values": {
           "count": 11,
-          "percentage": 0.03716341768302983
+          "percentage": 0.03709574073449566
         },
         "data_category": "numerical",
         "numerical_statistics": {
           "min": 0.0,
           "max": 10.0,
-          "mean": 0.8162437920200006,
+          "mean": 0.8151620409402084,
           "median": 1.0,
-          "std": 1.1269740956941252,
+          "std": 1.1263719866155841,
           "q1": 0.0,
           "q3": 1.0
         }
@@ -561,9 +562,9 @@
   },
   "statistical_summary": {
     "dataset_statistics": {
-      "total_records": 29599,
+      "total_records": 29653,
       "total_columns": 12,
-      "total_memory_bytes": 1065856,
+      "total_memory_bytes": 1067931,
       "average_record_size_bytes": 36
     },
     "data_type_distribution": {

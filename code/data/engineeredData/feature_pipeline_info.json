@@ -1,5 +1,5 @@
 {
-  "metadata_path": "data/columns_metadata.json",
+  "metadata_path": "../data/columns_metadata.json",
   "scaling_strategy": "standard",
   "fitted": true,
   "feature_summary": {
@@ -9,28 +9,28 @@
         "Source Port"
       ],
       "destination_ports": [
-        "NAT Destination Port",
-        "Destination Port"
+        "Destination Port",
+        "NAT Destination Port"
       ],
       "nat_ports": [
-        "NAT Destination Port",
-        "NAT Source Port"
+        "NAT Source Port",
+        "NAT Destination Port"
       ],
       "bytes_columns": [
-        "Bytes Received",
+        "Bytes Sent",
         "Bytes",
-        "Bytes Sent"
+        "Bytes Received"
       ],
       "packets_columns": [
         "Packets"
       ],
       "sent_columns": [
-        "Bytes Sent",
-        "pkts_sent"
+        "pkts_sent",
+        "Bytes Sent"
       ],
       "received_columns": [
-        "Bytes Received",
-        "pkts_received"
+        "pkts_received",
+        "Bytes Received"
       ],
       "time_columns": [
         "Elapsed Time (sec)"

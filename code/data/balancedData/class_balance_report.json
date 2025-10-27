@@ -1,81 +1,103 @@
 {
   "metadata": {
     "phase": "Class Balancing - Phase 3",
-    "timestamp": "2025-10-20T11:49:30.580604",
+    "timestamp": "2025-10-27T23:51:52.383857",
     "config": {
-      "test_size": 0.2,
+      "test_size": 0.3,
       "rare_class_threshold": 0.005,
       "random_state": 42
     },
     "statistics": {
-      "total_samples": 23679,
-      "num_classes": 3,
-      "test_samples": 4735,
-      "train_samples": 18943
+      "total_samples": 20757,
+      "num_classes": 4,
+      "test_samples": 6227,
+      "train_samples": 14529
     }
   },
   "class_analysis": {
     "class_counts": {
-      "0": 14109,
-      "2": 9308,
-      "1": 262
+      "0": 12345,
+      "2": 8144,
+      "1": 230,
+      "3": 38
     },
     "class_percentages": {
-      "0": 59.58,
-      "2": 39.31,
-      "1": 1.11
+      "0": 59.47,
+      "2": 39.23,
+      "1": 1.11,
+      "3": 0.18
     },
-    "rare_classes": [],
+    "rare_classes": [
+      "3"
+    ],
     "imbalance_metrics": {
-      "imbalance_ratio": 53.85,
-      "gini_coefficient": 0.3899,
-      "total_samples": 23679,
-      "num_classes": 3
+      "imbalance_ratio": 324.87,
+      "gini_coefficient": 0.54,
+      "total_samples": 20757,
+      "num_classes": 4
     },
     "recommendations": [
+      "⚠️  1 کلاس نادر شناسایی شد: ['3']",
+      "🔧 پیشنهاد: ادغام کلاس‌های نادر با کلاس‌های مشابه معنایی",
       "⚖️  عدم تعادل شدید - پیشنهاد: ترکیب Oversampling و Undersampling"
     ]
   },
   "sampling_strategies": {
-    "undersampling": {
-      "strategy": {
-        "0": 9308
-      },
-      "parameters": {
-        "sampling_strategy": {
-          "0": 9308,
-          "2": 9308,
-          "1": 9308
-        },
-        "k_neighbors_config": {
-          "1": 5
-        },
-        "strategy_type": "high",
-        "imbalance_ratio": 53.85114503816794
-      }
-    },
     "oversampling": {
       "strategy": {
-        "1": 9308
+        "1": 888,
+        "3": 888
       },
       "method": "SMOTE",
       "parameters": {
-        "sampling_strategy": {
-          "0": 9308,
-          "2": 9308,
-          "1": 9308
+        "sampling_strategy_over": {
+          "1": 888,
+          "3": 888
         },
-        "k_neighbors_config": {
-          "1": 5
+        "sampling_strategy_under": {
+          "0": 5328
         },
-        "strategy_type": "high",
-        "imbalance_ratio": 53.85114503816794
+        "target_minority": 888,
+        "target_majority": 5328,
+        "strategy_type": {
+          "oversample_classes": [
+            "1",
+            "3"
+          ],
+          "undersample_classes": [
+            "0"
+          ]
+        }
+      }
+    },
+    "undersampling": {
+      "strategy": {
+        "0": 5328
       },
-      "problematic_classes": []
+      "parameters": {
+        "sampling_strategy_over": {
+          "1": 888,
+          "3": 888
+        },
+        "sampling_strategy_under": {
+          "0": 5328
+        },
+        "target_minority": 888,
+        "target_majority": 5328,
+        "strategy_type": {
+          "oversample_classes": [
+            "1",
+            "3"
+          ],
+          "undersample_classes": [
+            "0"
+          ]
+        }
+      }
     }
   },
   "validation_results": {
-    "original": {
+    "baseline": {
       "basic_checks": {
         "has_nulls": false,
         "shape_consistent": true,
@@ -84,45 +106,16 @@
         "all_passed": true
       },
       "distribution_checks": {
-        "original_imbalance_ratio": 53.85114503816794,
-        "balanced_imbalance_ratio": 53.85114503816794,
+        "original_imbalance_ratio": 324.86842105263156,
+        "balanced_imbalance_ratio": 324.86842105263156,
         "improvement_ratio": 1.0,
         "class_preservation": true,
         "min_samples_per_class": true
       },
       "quality_checks": {
-        "synthetic_samples": 0,
-        "quality_score": 1.0
-      },
-      "leakage_checks": {
-        "is_proper_subset": true,
-        "no_data_leakage": true
-      },
-      "actual_null_status": {
-        "x_nulls": 0,
-        "y_nulls": 0,
-        "has_nulls_actual": false
-      }
-    },
-    "undersampled": {
-      "basic_checks": {
-        "has_nulls": false,
-        "shape_consistent": true,
-        "data_types_consistent": true,
-        "class_diversity": true,
-        "all_passed": true
-      },
-      "distribution_checks": {
-        "original_imbalance_ratio": 53.85114503816794,
-        "balanced_imbalance_ratio": 35.52671755725191,
-        "improvement_ratio": 1.5157928663515257,
-        "class_preservation": true,
-        "min_samples_per_class": true
-      },
-      "quality_checks": {
-        "feature_variance": 0.6156947113802983,
-        "correlation_structure": 0.45685073831408024,
-        "outlier_ratio": 0.15266447716919165,
+        "feature_variance": 0.6385376869581461,
+        "correlation_structure": 0.4274893020988913,
+        "outlier_ratio": 0.14611938141349906,
         "synthetic_quality": "unknown"
       },
       "leakage_checks": {
@@ -135,7 +128,7 @@
         "has_nulls_actual": false
       }
     },
-    "oversampled": {
+    "oversampling": {
       "basic_checks": {
         "has_nulls": false,
         "shape_consistent": true,
@@ -144,16 +137,47 @@
         "all_passed": true
       },
       "distribution_checks": {
-        "original_imbalance_ratio": 53.85114503816794,
-        "balanced_imbalance_ratio": 1.5157928663515257,
-        "improvement_ratio": 35.52671755725191,
+        "original_imbalance_ratio": 324.86842105263156,
+        "balanced_imbalance_ratio": 13.902027027027026,
+        "improvement_ratio": 23.36842105263158,
         "class_preservation": true,
         "min_samples_per_class": true
       },
       "quality_checks": {
-        "feature_variance": 0.7055331279552859,
-        "correlation_structure": 0.4383891380632901,
-        "outlier_ratio": 0.16464476699770816,
+        "feature_variance": 1.148366676595215,
+        "correlation_structure": 0.41575067710118335,
+        "outlier_ratio": 0.18553783965865708,
+        "synthetic_quality": "unknown"
+      },
+      "leakage_checks": {
+        "is_proper_subset": false,
+        "no_data_leakage": true
+      },
+      "actual_null_status": {
+        "x_nulls": 0,
+        "y_nulls": 0,
+        "has_nulls_actual": false
+      }
+    },
+    "undersampling": {
+      "basic_checks": {
+        "has_nulls": false,
+        "shape_consistent": true,
+        "data_types_consistent": true,
+        "class_diversity": true,
+        "all_passed": true
+      },
+      "distribution_checks": {
+        "original_imbalance_ratio": 324.86842105263156,
+        "balanced_imbalance_ratio": 214.31578947368422,
+        "improvement_ratio": 1.5158398821218073,
+        "class_preservation": true,
+        "min_samples_per_class": true
+      },
+      "quality_checks": {
+        "feature_variance": 0.5514491370693538,
+        "correlation_structure": 0.4672891216203258,
+        "outlier_ratio": 0.17889374090247454,
         "synthetic_quality": "unknown"
       },
       "leakage_checks": {
@@ -168,23 +192,28 @@
     }
   },
   "performance_metrics": {
-    "undersampled": {
+    "baseline": {
+      "imbalance_improvement": 1.0,
+      "quality_score": 1.0,
+      "recommended_for": "موارد عمومی"
+    },
+    "oversampling": {
+      "imbalance_improvement": 23.37,
+      "quality_score": 1.0,
+      "recommended_for": "موارد عمومی"
+    },
+    "undersampling": {
       "imbalance_improvement": 1.52,
       "quality_score": 1.0,
-      "recommended_for": "داده‌های با حجم زیاد و زمان آموزش کوتاه"
-    },
-    "oversampled": {
-      "imbalance_improvement": 35.53,
-      "quality_score": 1.0,
-      "recommended_for": "داده‌های با عدم تعادل شدید و اهمیت کلاس‌های اقلیت"
+      "recommended_for": "موارد عمومی"
     }
   },
   "recommendations": [
     "🎯 عدم تعادل شدید - پیشنهاد: استفاده از ترکیب Ensemble + Class Weights",
     "✅ از SMOTE برای تولید نمونه‌های مصنوعی استفاده شد",
-    "✅ استراتژی original تمام بررسی‌های پایه را گذراند",
-    "✅ استراتژی undersampled تمام بررسی‌های پایه را گذراند",
-    "✅ استراتژی oversampled تمام بررسی‌های پایه را گذراند",
+    "✅ استراتژی baseline تمام بررسی‌های پایه را گذراند",
+    "✅ استراتژی oversampling تمام بررسی‌های پایه را گذراند",
+    "✅ استراتژی undersampling تمام بررسی‌های پایه را گذراند",
     "🔮 برای فاز ۴: تست تمام استراتژی‌ها و انتخاب بهترین بر اساس Recall کلاس‌های اقلیت"
   ],
   "next_steps": [

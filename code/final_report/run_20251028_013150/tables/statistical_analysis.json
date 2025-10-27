@@ -1,0 +1,675 @@
+{
+  "bootstrap": {
+    "f1_minority_mean": {
+      "mean": 0.9374269122768899,
+      "std": 0.028555293415951956,
+      "ci_lower": 0.918102537443041,
+      "ci_upper": 0.9500778438776535,
+      "confidence_level": 0.95
+    },
+    "security_score": {
+      "mean": 0.9456587130834863,
+      "std": 0.010996097153927116,
+      "ci_lower": 0.9392046945322243,
+      "ci_upper": 0.9513566890930749,
+      "confidence_level": 0.95
+    },
+    "mean_security_recall": {
+      "mean": 0.926928842290282,
+      "std": 0.01672878989074633,
+      "ci_lower": 0.9174845862148926,
+      "ci_upper": 0.936142652778671,
+      "confidence_level": 0.95
+    },
+    "security_f1": {
+      "mean": 0.9395454443632483,
+      "std": 0.026108436775635617,
+      "ci_lower": 0.9237061510515411,
+      "ci_upper": 0.95108844258863,
+      "confidence_level": 0.95
+    },
+    "accuracy": {
+      "mean": 0.9971616456834534,
+      "std": 0.0016949491935804933,
+      "ci_lower": 0.9960466782823743,
+      "ci_upper": 0.9978738103267388,
+      "confidence_level": 0.95
+    }
+  },
+  "pairwise": {
+    "svm": {
+      "baseline_vs_undersampling": {
+        "strategy1": "baseline",
+        "strategy2": "undersampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9459268025463872,
+            "undersampling_value": 0.9525513408130173,
+            "difference": -0.00662453826663012,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.941413123825317,
+            "undersampling_value": 0.9503525655983261,
+            "difference": -0.008939441773009094,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.9081632653061225,
+            "undersampling_value": 0.9234693877551021,
+            "difference": -0.015306122448979664,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9481544898310567,
+            "undersampling_value": 0.9538222125944291,
+            "difference": -0.0056677227633724625,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.9975269784172662,
+            "undersampling_value": 0.9978642086330936,
+            "difference": -0.00033723021582732216,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.33723021582732216
+          }
+        ]
+      },
+      "baseline_vs_oversampling": {
+        "strategy1": "baseline",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9459268025463872,
+            "oversampling_value": 0.9525513408130173,
+            "difference": -0.00662453826663012,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.941413123825317,
+            "oversampling_value": 0.9503525655983261,
+            "difference": -0.008939441773009094,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.9081632653061225,
+            "oversampling_value": 0.9234693877551021,
+            "difference": -0.015306122448979664,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9481544898310567,
+            "oversampling_value": 0.9538222125944291,
+            "difference": -0.0056677227633724625,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.9975269784172662,
+            "oversampling_value": 0.9980890287769785,
+            "difference": -0.0005620503597122406,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.5620503597122406
+          }
+        ]
+      },
+      "undersampling_vs_oversampling": {
+        "strategy1": "undersampling",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "undersampling_value": 0.9525513408130173,
+            "oversampling_value": 0.9525513408130173,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "security_score",
+            "undersampling_value": 0.9503525655983261,
+            "oversampling_value": 0.9503525655983261,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "mean_security_recall",
+            "undersampling_value": 0.9234693877551021,
+            "oversampling_value": 0.9234693877551021,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "security_f1",
+            "undersampling_value": 0.9538222125944291,
+            "oversampling_value": 0.9538222125944291,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "accuracy",
+            "undersampling_value": 0.9978642086330936,
+            "oversampling_value": 0.9980890287769785,
+            "difference": -0.00022482014388491844,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.22482014388491844
+          }
+        ]
+      }
+    },
+    "knn": {
+      "baseline_vs_undersampling": {
+        "strategy1": "baseline",
+        "strategy2": "undersampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9395347823349044,
+            "undersampling_value": 0.9402688941709256,
+            "difference": -0.000734111836021234,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.734111836021234
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.9347189572587411,
+            "undersampling_value": 0.9371091441486019,
+            "difference": -0.0023901868898608125,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.8979591836734694,
+            "undersampling_value": 0.903061224489796,
+            "difference": -0.005102040816326592,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9423643279924153,
+            "undersampling_value": 0.942488233177884,
+            "difference": -0.00012390518546867568,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.12390518546867568
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.9975269784172662,
+            "undersampling_value": 0.9976393884892086,
+            "difference": -0.00011241007194240371,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.11241007194240371
+          }
+        ]
+      },
+      "baseline_vs_oversampling": {
+        "strategy1": "baseline",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9395347823349044,
+            "oversampling_value": 0.9551718234324962,
+            "difference": -0.015637041097591786,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.9347189572587411,
+            "oversampling_value": 0.9616032759329574,
+            "difference": -0.026884318674216257,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.8979591836734694,
+            "oversampling_value": 0.9488363663998971,
+            "difference": -0.05087718272642772,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9423643279924153,
+            "oversampling_value": 0.9552393374668416,
+            "difference": -0.012875009474426324,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.9975269784172662,
+            "oversampling_value": 0.9980890287769785,
+            "difference": -0.0005620503597122406,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.5620503597122406
+          }
+        ]
+      },
+      "undersampling_vs_oversampling": {
+        "strategy1": "undersampling",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "undersampling_value": 0.9402688941709256,
+            "oversampling_value": 0.9551718234324962,
+            "difference": -0.014902929261570552,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "undersampling_value": 0.9371091441486019,
+            "oversampling_value": 0.9616032759329574,
+            "difference": -0.024494131784355444,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "undersampling_value": 0.903061224489796,
+            "oversampling_value": 0.9488363663998971,
+            "difference": -0.045775141910101125,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "undersampling_value": 0.942488233177884,
+            "oversampling_value": 0.9552393374668416,
+            "difference": -0.012751104288957649,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "undersampling_value": 0.9976393884892086,
+            "oversampling_value": 0.9980890287769785,
+            "difference": -0.0004496402877698369,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.4496402877698369
+          }
+        ]
+      }
+    },
+    "logistic_regression": {
+      "baseline_vs_undersampling": {
+        "strategy1": "baseline",
+        "strategy2": "undersampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9524800246163265,
+            "undersampling_value": 0.9554498511784553,
+            "difference": -0.002969826562128741,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.9503240391196498,
+            "undersampling_value": 0.9536085118999535,
+            "difference": -0.003284472780303749,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.9234693877551021,
+            "undersampling_value": 0.9285714285714286,
+            "difference": -0.005102040816326481,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9537557781201802,
+            "undersampling_value": 0.9565339662012134,
+            "difference": -0.0027781880810332504,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.997976618705036,
+            "undersampling_value": 0.9980890287769785,
+            "difference": -0.00011241007194251473,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.11241007194251473
+          }
+        ]
+      },
+      "baseline_vs_oversampling": {
+        "strategy1": "baseline",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9524800246163265,
+            "oversampling_value": 0.9554498511784553,
+            "difference": -0.002969826562128741,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.9503240391196498,
+            "oversampling_value": 0.9536085118999535,
+            "difference": -0.003284472780303749,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.9234693877551021,
+            "oversampling_value": 0.9285714285714286,
+            "difference": -0.005102040816326481,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9537557781201802,
+            "oversampling_value": 0.9565339662012134,
+            "difference": -0.0027781880810332504,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.997976618705036,
+            "oversampling_value": 0.9980890287769785,
+            "difference": -0.00011241007194251473,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 0.11241007194251473
+          }
+        ]
+      },
+      "undersampling_vs_oversampling": {
+        "strategy1": "undersampling",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "undersampling_value": 0.9554498511784553,
+            "oversampling_value": 0.9554498511784553,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "security_score",
+            "undersampling_value": 0.9536085118999535,
+            "oversampling_value": 0.9536085118999535,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "mean_security_recall",
+            "undersampling_value": 0.9285714285714286,
+            "oversampling_value": 0.9285714285714286,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "security_f1",
+            "undersampling_value": 0.9565339662012134,
+            "oversampling_value": 0.9565339662012134,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "accuracy",
+            "undersampling_value": 0.9980890287769785,
+            "oversampling_value": 0.9980890287769785,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          }
+        ]
+      }
+    },
+    "random_forest": {
+      "baseline_vs_undersampling": {
+        "strategy1": "baseline",
+        "strategy2": "undersampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9251764338909034,
+            "undersampling_value": 0.9251764338909034,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.948518171142168,
+            "undersampling_value": 0.948518171142168,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.9462583085368206,
+            "undersampling_value": 0.9462583085368206,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9257515013523183,
+            "undersampling_value": 0.9257515013523183,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.9966276978417267,
+            "undersampling_value": 0.9966276978417267,
+            "difference": 0.0,
+            "p_value": 1.0,
+            "significant": false,
+            "effect_size": 0.0,
+            "note": "identical_values"
+          }
+        ]
+      },
+      "baseline_vs_oversampling": {
+        "strategy1": "baseline",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "baseline_value": 0.9251764338909034,
+            "oversampling_value": 0.8493853684568884,
+            "difference": 0.07579106543401504,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "baseline_value": 0.948518171142168,
+            "oversampling_value": 0.9177775194356728,
+            "difference": 0.030740651706495203,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "baseline_value": 0.9462583085368206,
+            "oversampling_value": 0.9450584301322935,
+            "difference": 0.001199878404527066,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 1.199878404527066
+          },
+          {
+            "metric": "security_f1",
+            "baseline_value": 0.9257515013523183,
+            "oversampling_value": 0.8603278054746807,
+            "difference": 0.06542369587763763,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "baseline_value": 0.9966276978417267,
+            "oversampling_value": 0.9917940647482014,
+            "difference": 0.004833633093525247,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          }
+        ]
+      },
+      "undersampling_vs_oversampling": {
+        "strategy1": "undersampling",
+        "strategy2": "oversampling",
+        "compared_metrics": [
+          {
+            "metric": "f1_minority_mean",
+            "undersampling_value": 0.9251764338909034,
+            "oversampling_value": 0.8493853684568884,
+            "difference": 0.07579106543401504,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "security_score",
+            "undersampling_value": 0.948518171142168,
+            "oversampling_value": 0.9177775194356728,
+            "difference": 0.030740651706495203,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "mean_security_recall",
+            "undersampling_value": 0.9462583085368206,
+            "oversampling_value": 0.9450584301322935,
+            "difference": 0.001199878404527066,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 1.199878404527066
+          },
+          {
+            "metric": "security_f1",
+            "undersampling_value": 0.9257515013523183,
+            "oversampling_value": 0.8603278054746807,
+            "difference": 0.06542369587763763,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          },
+          {
+            "metric": "accuracy",
+            "undersampling_value": 0.9966276978417267,
+            "oversampling_value": 0.9917940647482014,
+            "difference": 0.004833633093525247,
+            "p_value": null,
+            "significant": false,
+            "effect_size": 2.0
+          }
+        ]
+      }
+    }
+  }
+}

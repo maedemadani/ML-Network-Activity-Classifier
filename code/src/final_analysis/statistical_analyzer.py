@@ -43,7 +43,8 @@ class StatisticalAnalyzer:
         """انجام تحلیل بوت‌استرپ برای فاصله اطمینان"""
         bootstrap_results = {}
 
-        for metric in ['f1_minority_mean', 'security_score', 'accuracy']:
+        for metric in ['f1_minority_mean', 'security_score', 'mean_security_recall',
+                       'security_f1', 'accuracy']:
             values = model_summary[metric].values
             bootstrap_ci = self._bootstrap_confidence_interval(values)
             bootstrap_results[metric] = bootstrap_ci
@@ -123,7 +124,13 @@ class StatisticalAnalyzer:
             'compared_metrics': []
         }
 
-        metrics_to_compare = ['f1_minority_mean', 'security_score', 'accuracy']
+        metrics_to_compare = [
+            'f1_minority_mean',
+            'security_score',
+            'mean_security_recall',
+            'security_f1',
+            'accuracy'
+        ]
 
         for metric in metrics_to_compare:
             val1 = strategy1[metric]

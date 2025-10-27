@@ -16,27 +16,46 @@ class ResultsAggregator:
         self.detailed_results = {}
 
     def load_phase4_results(self, evaluation_path: Path) -> bool:
-        """بارگذاری نتایج فاز ۴"""
+        """بارگذاری نتایج فاز ۴ و نرمال‌سازی نام استراتژی‌ها"""
         try:
-            # بارگذاری گزارش مقایسه‌ای
+            # ۱. بارگذاری گزارش مقایسه‌ای کلی
             comp_path = evaluation_path / "comparative_analysis.json"
             with open(comp_path, 'r', encoding='utf-8') as f:
                 comparative_data = json.load(f)
 
-            # بارگذاری گزارش‌های تفصیلی
-            detailed_data = {}
-            for strategy in ['original', 'undersampled', 'oversampled']:
-                detail_path = evaluation_path / f"detailed_report_{strategy}.json"
-                if detail_path.exists():
-                    with open(detail_path, 'r', encoding='utf-8') as f:
-                        detailed_data[strategy] = json.load(f)
+            # ۲. نگاشت نام‌های قدیمی به جدید
+            name_map = {
+                'original': 'baseline',
+                'oversampled': 'oversampling',
+                'undersampled': 'undersampling',
+                'oversampling': 'oversampling',
+                'undersampling': 'undersampling',
+                'baseline': 'baseline'
+            }
 
+            # ۳. بارگذاری گزارش‌های تفصیلی
+            detailed_data = {}
+            for raw_name in ['original', 'undersampled', 'oversampled',
+                             'baseline', 'undersampling', 'oversampling']:
+                strategy = name_map.get(raw_name, raw_name)
+                detail_path = evaluation_path / f"detailed_report_{raw_name}.json"
+                if not detail_path.exists():
+                    # بررسی اگر فایل با نام نرمال شده وجود دارد
+                    alt_path = evaluation_path / f"detailed_report_{strategy}.json"
+                    if alt_path.exists():
+                        detail_path = alt_path
+                    else:
+                        continue
+                with open(detail_path, 'r', encoding='utf-8') as f:
+                    detailed_data[strategy] = json.load(f)
+
+            # ۴. ذخیره داده‌ها در حافظه داخلی
             self.detailed_results = {
                 'comparative': comparative_data,
                 'detailed': detailed_data
             }
 
-            print("✅ نتایج فاز ۴ بارگذاری شدند")
+            print(f"✅ نتایج فاز ۴ بارگذاری شدند ({len(detailed_data)} استراتژی یافت شد)")
             return True
 
         except Exception as e:
@@ -121,6 +140,10 @@ class ResultsAggregator:
             json.dump(summary_dict, f, indent=2, ensure_ascii=False)
 
         print(f"📊 جداول خلاصه در {output_dir} ذخیره شدند")
+
+        unified_csv = output_dir / "final_summary.csv"
+        self.model_summary.to_csv(unified_csv, index=False, encoding='utf-8')
+        print(f"📄 جدول نهایی مدل‌ها ذخیره شد: {unified_csv.name}")
 
     def get_top_models(self, n: int = 5) -> pd.DataFrame:
         """دریافت برترین مدل‌ها بر اساس امتیاز امنیتی"""

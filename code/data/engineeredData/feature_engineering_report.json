@@ -1,23 +1,24 @@
 {
   "metadata": {
     "phase": "Feature Engineering - Phase 2",
-    "timestamp": "2025-10-20T11:49:23.236156",
+    "timestamp": "2025-10-27T11:51:37.789416",
     "final_shape": {
-      "rows": 29599,
-      "columns": 46
+      "rows": 29653,
+      "columns": 48
     },
     "scaling_strategy": "standard",
     "target_column": "Action",
     "is_fitted": true
   },
   "feature_analysis": {
-    "total_features": 46,
-    "numeric_features": 46,
+    "total_features": 48,
+    "numeric_features": 48,
     "categorical_features": 0,
     "target_distribution": {
       "0": 17636,
       "2": 11635,
-      "1": 328
+      "1": 328,
+      "3": 54
     }
   },
   "engineer_summary": {
@@ -27,28 +28,28 @@
         "Source Port"
       ],
       "destination_ports": [
-        "NAT Destination Port",
-        "Destination Port"
+        "Destination Port",
+        "NAT Destination Port"
       ],
       "nat_ports": [
-        "NAT Destination Port",
-        "NAT Source Port"
+        "NAT Source Port",
+        "NAT Destination Port"
       ],
       "bytes_columns": [
-        "Bytes Received",
+        "Bytes Sent",
         "Bytes",
-        "Bytes Sent"
+        "Bytes Received"
       ],
       "packets_columns": [
         "Packets"
       ],
       "sent_columns": [
-        "Bytes Sent",
-        "pkts_sent"
+        "pkts_sent",
+        "Bytes Sent"
       ],
       "received_columns": [
-        "Bytes Received",
-        "pkts_received"
+        "pkts_received",
+        "Bytes Received"
       ],
       "time_columns": [
         "Elapsed Time (sec)"
@@ -65,13 +66,13 @@
   },
   "data_quality": {
     "missing_values": 0,
-    "memory_usage_mb": 10.39
+    "memory_usage_mb": 10.86
   },
   "process_summary": {
-    "nat_features_created": 14,
-    "port_features_created": 17,
+    "nat_features_created": 16,
+    "port_features_created": 19,
     "traffic_features_created": 19,
     "time_features_created": 8,
-    "log_features_created": 10
+    "log_features_created": 11
   }
 }

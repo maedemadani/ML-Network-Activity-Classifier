@@ -26,6 +26,8 @@ class Phase5FinalAnalysis:
         self.run_manager = RunManager(self.config)
         self.results_aggregator = ResultsAggregator(self.config)
         self.visualizer = ComparativeVisualizer(self.config)
+        cm_dir = self.run_manager.subdirectories['tables'] / "evaluation_results" / "confusion_matrices"
+        self.visualizer.create_confusion_matrix_overview(cm_dir, self.run_manager.subdirectories['plots'])
         self.stat_analyzer = StatisticalAnalyzer(self.config)
         self.model_selector = ModelSelector(self.config)
         self.final_results = {}

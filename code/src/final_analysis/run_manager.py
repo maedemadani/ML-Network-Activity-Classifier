@@ -142,10 +142,27 @@ class RunManager:
             if (source_path / "preprocessors").exists():
                 shutil.copytree(source_path / "preprocessors", dest_models / "preprocessors")
 
-            # کپی نتایج ارزیابی
-            if (source_path / "evaluation_results").exists():
-                dest_eval = self.subdirectories['tables']
-                shutil.copytree(source_path / "evaluation_results", dest_eval / "evaluation_results")
+            #  کپی نتایج ارزیابی با تشخیص خودکار مسیر
+            eval_candidates = [
+                source_path / "evaluation",
+                source_path / "evaluation_results",
+                source_path / "data" / "models" / "evaluation",
+                source_path / "data" / "models" / "evaluation_results"
+            ]
+
+            found_eval = False
+            for eval_path in eval_candidates:
+                if eval_path.exists():
+                    dest_eval = self.subdirectories['tables'] / "evaluation_results"
+                    shutil.copytree(eval_path, dest_eval, dirs_exist_ok=True)
+                    print(f"✅ نتایج ارزیابی از {eval_path} کپی شد → {dest_eval}")
+                    found_eval = True
+                    break
+
+            if not found_eval:
+                print("⚠️  پوشه نتایج ارزیابی یافت نشد در مسیرهای ممکن:")
+                for candidate in eval_candidates:
+                    print(f"   • {candidate}")
 
             print("✅ آرتیفکت‌های فاز ۴ کپی شدند")
             return True

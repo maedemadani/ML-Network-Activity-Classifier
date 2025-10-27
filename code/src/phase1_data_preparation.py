@@ -201,65 +201,8 @@ class DataCleaner:
         print(f"\n✅ مقادیر گمشده پس از پردازش: {null_after}")
         return df
 
-    def detect_and_handle_outliers(self, df, method='remove'):
-        """شناسایی و مدیریت outlierها با قابلیت حذف"""
-        print("\n" + "=" * 50)
-        print("گام 4: شناسایی و مدیریت Outliers")
-        print("=" * 50)
-
-        numeric_cols = df.select_dtypes(include=[np.number]).columns
-        outlier_report = {}
-
-        # ذخیره وضعیت اولیه
-        initial_row_count = len(df)
-        outlier_flags = pd.Series([False] * len(df), index=df.index)
-
-        for col in numeric_cols:
-            try:
-                # شناسایی با IQR
-                Q1 = df[col].quantile(0.25)
-                Q3 = df[col].quantile(0.75)
-                IQR = Q3 - Q1
-                lower_bound = Q1 - 1.5 * IQR
-                upper_bound = Q3 + 1.5 * IQR
-
-                outliers_mask = (df[col] < lower_bound) | (df[col] > upper_bound)
-                outlier_count = outliers_mask.sum()
-                outlier_percentage = (outlier_count / len(df)) * 100
-
-                outlier_report[col] = {
-                    'count': outlier_count,
-                    'percentage': outlier_percentage,
-                    'lower_bound': lower_bound,
-                    'upper_bound': upper_bound,
-                    'min': df[col].min(),
-                    'max': df[col].max()
-                }
-
-                print(f"\n📊 {col}:")
-                print(f"   📈 محدوده معمول: [{lower_bound:.2f}, {upper_bound:.2f}]")
-                print(f"   📊 مقادیر واقعی: [{df[col].min():.2f}, {df[col].max():.2f}]")
-                print(f"   ⚠️  تعداد outliers: {outlier_count} ({outlier_percentage:.1f}%)")
-
-                # جمع‌آوری تمام outlierها
-                outlier_flags = outlier_flags | outliers_mask
-
-            except Exception as e:
-                print(f"⚠️ خطا در پردازش outliers برای ستون {col}: {e}")
-
-        # حذف ردیف‌های outlier
-        if method == 'remove' and outlier_flags.any():
-            df_clean = df[~outlier_flags]
-            removed_count = len(df) - len(df_clean)
-            print(f"\n🗑️  حذف {removed_count} ردیف outlier ({removed_count / len(df) * 100:.1f}%)")
-            self.cleaning_report['outliers_removed'] = removed_count
-            df = df_clean
-
-        self.cleaning_report['outliers'] = outlier_report
-        return df
-
     def optimize_data_types(self, df):
-        """بهینه‌سازی خودکار نوع داده‌ها - نسخه بهبود یافته"""
+        """بهینه‌سازی خودکار نوع داده‌ها """
         print("\n" + "=" * 50)
         print("گام 5: بهینه‌سازی نوع داده‌ها")
         print("=" * 50)
@@ -796,48 +739,62 @@ class DataCleaner:
         numeric_cols = df.select_dtypes(include=[np.number]).columns
         outlier_report = {}
 
-        # ذخیره وضعیت اولیه
         initial_row_count = len(df)
         outlier_flags = pd.Series([False] * len(df), index=df.index)
 
+        # محاسبه فراوانی هر برچسب برای تشخیص کلاس‌های کم‌داده
+        target_col = "Action" if "Action" in df.columns else None
+        rare_classes = set()
+        if target_col:
+            class_counts = df[target_col].value_counts()
+            rare_classes = set(class_counts[class_counts < 100].index)  # <100 نمونه یعنی کلاس کم‌تعداد
+            if rare_classes:
+                print(f"🔎 کلاس‌های کم‌تعداد شناسایی‌شده و محافظت‌شده در حذف Outlierها: {rare_classes}")
+
         for col in numeric_cols:
             try:
-                # شناسایی با IQR
-                Q1 = df[col].quantile(0.25)
-                Q3 = df[col].quantile(0.75)
+                Q1, Q3 = df[col].quantile([0.25, 0.75])
                 IQR = Q3 - Q1
-                lower_bound = Q1 - 1.5 * IQR
-                upper_bound = Q3 + 1.5 * IQR
+                lower, upper = Q1 - 1.5 * IQR, Q3 + 1.5 * IQR
 
-                outliers_mask = (df[col] < lower_bound) | (df[col] > upper_bound)
+                outliers_mask = (df[col] < lower) | (df[col] > upper)
                 outlier_count = outliers_mask.sum()
                 outlier_percentage = (outlier_count / len(df)) * 100
 
                 outlier_report[col] = {
                     'count': outlier_count,
                     'percentage': outlier_percentage,
-                    'lower_bound': lower_bound,
-                    'upper_bound': upper_bound,
+                    'lower_bound': lower,
+                    'upper_bound': upper,
                     'min': df[col].min(),
                     'max': df[col].max()
                 }
 
                 print(f"\n📊 {col}:")
-                print(f"   📈 محدوده معمول: [{lower_bound:.2f}, {upper_bound:.2f}]")
+                print(f"   📈 محدوده معمول: [{lower:.2f}, {upper:.2f}]")
                 print(f"   📊 مقادیر واقعی: [{df[col].min():.2f}, {df[col].max():.2f}]")
                 print(f"   ⚠️  تعداد outliers: {outlier_count} ({outlier_percentage:.1f}%)")
 
-                # جمع‌آوری تمام outlierها
                 outlier_flags = outlier_flags | outliers_mask
 
             except Exception as e:
                 print(f"⚠️ خطا در پردازش outliers برای ستون {col}: {e}")
 
-        # حذف ردیف‌های outlier
+        # 🚫 جلوگیری از حذف داده‌های کم‌تعداد
         if method == 'remove' and outlier_flags.any():
-            df_clean = df[~outlier_flags]
+            protected_mask = pd.Series(False, index=df.index)
+            if target_col and rare_classes:
+                protected_mask = df[target_col].isin(rare_classes)
+            combined_mask = outlier_flags & ~protected_mask
+
+            df_clean = df[~combined_mask]
             removed_count = len(df) - len(df_clean)
+            protected_count = (outlier_flags & protected_mask).sum()
+
             print(f"\n🗑️  حذف {removed_count} ردیف outlier ({removed_count / len(df) * 100:.1f}%)")
+            if protected_count:
+                print(f"🛡️  حفظ {protected_count} outlier از کلاس‌های کم‌تعداد ({rare_classes})")
+
             self.cleaning_report['outliers_removed'] = removed_count
             df = df_clean
 
