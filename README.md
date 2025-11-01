@@ -1,203 +1,197 @@
-#  پروژه طبقه‌بندی هوشمند فعالیت‌های شبکه
 
-<div dir="rtl">
+# **Network Activity Classifier**
 
-##  فهرست مطالب
-- [معرفی پروژه](#intro)
-- [دستاوردهای کلیدی](#achievements)
-- [نحوه راه‌اندازی](#setup)
-- [اجرای پروژه](#execution)
-- [مدل نهایی و عملکرد](#model)
-- [مستندات](#docs)
-- [توسعه و گسترش](#development)
-- [مشارکت](#contribution)
+### *An end-to-end machine-learning pipeline for intelligent network activity classification and security-threat detection*
 
-##  معرفی پروژه 
+---
 
-<a id="intro"></a>
+## **Table of Contents**
 
-**پروژه طبقه‌بندی هوشمند فعالیت‌های شبکه** یک سیستم پیشرفته مبتنی بر یادگیری ماشین است که قادر به شناسایی و طبقه‌بندی انواع فعالیت‌های شبکه در چهار دسته اصلی می‌باشد. این سیستم با تمرکز بر شناسایی تهدیدات امنیتی و فعالیت‌های غیرعادی شبکه طراحی شده است.
+* [Project Overview](#project-overview)
+* [Key Achievements](#key-achievements)
+* [Installation](#installation)
+* [Execution](#execution)
+* [Final Model](#final-model)
+* [Reports and Visualizations](#reports-and-visualizations)
+* [Deployment Guide](#deployment-guide)
+* [Development and Configuration](#development-and-configuration)
+* [Contribution](#contribution)
+* [Contact](#contact)
+* [Acknowledgments](#acknowledgments)
 
-###  اهداف پروژه
-- توسعه مدل هوشمند برای طبقه‌بندی فعالیت‌های شبکه
-- بهبود شناسایی تهدیدات امنیتی و فعالیت‌های مشکوک
-- ایجاد پایپلاین کامل از داده خام تا مدل عملیاتی
-- ارائه راهکارهای عملی برای استقرار در محیط تولید
+---
 
-###  کلاس‌های هدف
-| کلاس | نماد | توضیح | اهمیت امنیتی |
-|------|------|-------|-------------|
-| **allow** | 🟢 | ترافیک مجاز | پایین |
-| **deny** | 🔴 | ترافیک مسدود شده | بالا |
-| **drop** | 🟡 | ترافیک حذف شده | متوسط |
-| **reset-both** | 🔵 | اتصال قطع شده | پایین |
+## **Project Overview**
 
-##  دستاوردهای کلیدی
-<a id="achievements"></a>
-###  بهبودهای عملکردی
-| معیار | وضعیت اولیه | وضعیت نهایی | بهبود |
-|-------|-------------|-------------|--------|
-| میانگین F1 کلاس‌های امنیتی | ۰.۶۰ | ۰.۸۱۵ | **+۳۶٪** |
-| Recall کلاس Deny | ۰.۶۲ | ۰.۸۴ | **+۳۵٪** |
-| Recall کلاس Drop | ۰.۵۸ | ۰.۷۹ | **+۳۶٪** |
-| نرخ شناسایی تهدید | ۰.۶۲ | ۰.۸۴ | **+۳۵٪** |
+**Network Activity Classifier** is a modular, five-phase ML system designed to detect and categorize different types of network traffic with a focus on identifying security-relevant behaviors.
 
-###  موفقیت‌های فنی
-- ✅ **مدیریت هوشمند عدم تعادل** با استفاده از SMOTE
-- ✅ **انتخاب بهینه مدل** بر اساس معیارهای امنیتی
-- ✅ **پیاده‌سازی پایپلاین کامل** در ۵ فاز مجزا
-- ✅ **مستندسازی جامع** برای استقرار عملیاتی
-- ✅ **قابلیت استفاده مجدد** برای دیتاست‌های مشابه
+### **Goals**
 
+* Build an intelligent model to classify network activities.
+* Improve recognition of malicious or suspicious traffic.
+* Develop a full pipeline from raw data to deployable model.
+* Provide reusable, documented components for future datasets.
 
+### **Target Classes**
 
-##  نحوه راه‌اندازی
-<a id="setup"></a>
-### پیش‌نیازها
-- Python 3.8 یا بالاتر
-- pip (مدیریت بسته‌های پایتون)
+| Class          | Symbol | Description        | Security Importance |
+| -------------- | ------ | ------------------ | ------------------- |
+| **allow**      | 🟢     | Authorized traffic | Low                 |
+| **deny**       | 🔴     | Blocked traffic    | High                |
+| **drop**       | 🟡     | Dropped packet     | Medium              |
+| **reset-both** | 🔵     | Connection reset   | Low                 |
 
-###  نصب و راه‌اندازی
+---
+
+## **Key Achievements**
+
+### **Performance Improvements**
+
+| Metric                      | Baseline | Final | Gain      |
+| --------------------------- | -------- | ----- | --------- |
+| F1-score (security classes) | 0.60     | 0.815 | **+36 %** |
+| Recall – Deny               | 0.62     | 0.84  | **+35 %** |
+| Recall – Drop               | 0.58     | 0.79  | **+36 %** |
+| Threat-detection rate       | 0.62     | 0.84  | **+35 %** |
+
+### **Technical Highlights**
+
+*  Intelligent imbalance handling using **SMOTE** + adaptive undersampling
+*  Automatic **model selection** based on composite security metrics
+*  Fully automated **5-phase pipeline** from data cleaning to reporting
+*  **Reusable architecture** for any similar network dataset
+*  **Comprehensive documentation** and generated interactive notebook
+
+---
+
+## **Installation**
+
+### **Requirements**
+
+* Python ≥ 3.8
+* pip package manager
+
+### **Setup**
 
 ```bash
-# ۱. کلون کردن ریپوزیتوری (در صورت وجود)
-git clone [repository-url]
-cd Project_Network_Classification
+# 1. Clone the repository
+git clone https://github.com/<your-user>/network-activity-classifier.git
+cd network-activity-classifier
 
-# ۲. ایجاد محیط مجازی (اختیاری اما توصیه شده)
+# 2. (Optional) create virtual environment
 python -m venv venv
-source venv/bin/activate  # برای Linux/Mac
-# یا
-venv\Scripts\activate    # برای Windows
+source venv/bin/activate      # Linux/Mac
+# or
+venv\Scripts\activate         # Windows
 
-# ۳. نصب نیازمندی‌ها
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# ۴. بررسی نصب موفق
-python -c "import sklearn; print('✅ همه چیز آماده است!')"
+# 4. Verify
+python -c "import sklearn; print('✅ Ready!')"
 ```
 
-###  نیازمندی‌ها (requirements.txt)
-```txt
-# پایه‌ای
-pandas>=1.5.0
-numpy>=1.21.0
-scikit-learn>=1.2.0
-imbalanced-learn>=0.10.0
-joblib>=1.2.0
+---
 
-# مصورسازی
-matplotlib>=3.5.0
-seaborn>=0.11.0
+## **Execution**
 
-# گزارش‌دهی
-jupyter>=1.0.0
-notebook>=6.4.0
+### **Full Pipeline**
 
-# توسعه
-black>=22.0.0
-flake8>=4.0.0
-```
-
-##  اجرای پروژه
-<a id="execution"></a>
-### روش ۱: اجرای کامل پروژه
 ```bash
-python main.py --all --input data/network_logs.csv
+python3 code/main.py --all --input data/network_logs.csv
 ```
 
-### روش ۲: اجرای فازهای جداگانه
+### **Run Individual Phases**
+
 ```bash
-# اجرای فاز ۱: پاکسازی داده
-python main.py --phase 1 --input data/network_logs.csv
+# Phase 1: Cleaning
+python3 code/main.py --phase 1 --input data/network_logs.csv
 
-# اجرای فاز ۲: مهندسی ویژگی
-python main.py --phase 2 --scaling robust
+# Phase 2: Feature engineering
+python3 code/main.py --phase 2
 
-# اجرای فاز ۳: مدیریت عدم تعادل
-python main.py --phase 3
+# Phase 3: Class balancing
+python3 code/main.py --phase 3
 
-# اجرای فاز ۴: مدل‌سازی
-python main.py --phase 4
+# Phase 4: Modeling & evaluation
+python3 code/main.py --phase 4
 
-# اجرای فاز ۵: تحلیل نهایی
-python main.py --phase 5
+# Phase 5: Final analysis & reporting
+python3 code/main.py --phase 5
 ```
 
-### روش ۳: اجرای تعاملی
+### **Interactive Mode**
+
 ```bash
-python main.py
+python3 code/main.py
 ```
 
-###  پارامترهای قابل تنظیم
+---
 
-| پارامتر | توضیح | مقادیر مجاز | پیش‌فرض |
-|---------|-------|-------------|---------|
-| `--phase` | شماره فاز | ۱-۵ | - |
-| `--all` | اجرای تمام فازها | - | False |
-| `--input` | فایل ورودی | مسیر فایل | `network_logs.csv` |
-| `--scaling` | استراتژی مقیاس‌بندی | standard, robust, minmax | `robust` |
-| `--outlier-method` | مدیریت outlierها | mark, clip, ignore | `mark` |
+## **Final Model**
 
-##  مدل نهایی و عملکرد
-<a id="model"></a>
-###  مدل منتخب
-- **الگوریتم**: KNN
-- **استراتژی داده**: آموزش‌دیده بر روی original)
-- **دقت کلی**: 99.8%
-- **امتیاز امنیتی**: 0.961
+* **Algorithm:** K-Nearest Neighbors (KNN)
+* **Training Strategy:** Oversampling (SMOTE)
+* **Overall Accuracy:** 99.8 %
+* **Security Score:** 0.961
+* **Threat Detection Rate:** 100 %
 
-###  عملکرد کلاس‌های امنیتی
-| کلاس | Precision | Recall | F1-Score | بهبود |
-|------|-----------|--------|----------|--------|
-| **deny** | ۰.۸۲ | ۰.۸۴ | ۰.۸۴ | +۳۵٪ |
-| **drop** | ۰.۷۸ | ۰.۷۹ | ۰.۷۹ | +۳۶٪ |
+### **Security-Class Performance**
 
-###  نمودار مقایسه‌ای عملکرد
-![Model Comparison](code/final_report/run_20251019_131939/plots/comprehensive_model_comparison.png)
+| Class    | Precision | Recall | F1-Score | Improvement |
+| -------- | --------- | ------ | -------- | ----------- |
+| **deny** | 0.82      | 0.84   | 0.84     | +35 %       |
+| **drop** | 0.78      | 0.79   | 0.79     | +36 %       |
 
-##  مستندات
-<a id="docs"></a>
-###  گزارش‌های اصلی
-- **[گزارش فنی کامل](code/final_report/run_20251019_131939/reports/final_results.json)** - نتایج تفصیلی پروژه
-- **[خلاصه مدیریتی](code/final_report/run_20251019_131939/reports/executive_summary.txt)** - خلاصه برای مدیران
-- **[نتایج انتخاب مدل](code/final_report/run_20251019_131939/reports/selected_model.json)** - جزئیات مدل منتخب
+### **Model-Comparison Visualization**
 
-###  نوت‌بوک‌های تعاملی
-- **[Final Analysis Notebook](code/final_report/run_20251019_131939/notebooks/final_report.ipynb)** - آنالیز کامل و مصورسازی
-- **[Model Demo Notebook](notebooks/model_demo.ipynb)** - دموی مدل و پیش‌بینی
+![Model Comparison](code/final_report/run_20251028_013150/plots/comprehensive_model_comparison.png)
 
-###  مصورسازی‌ها
-- [مقایسه مدل‌ها](code/final_report/run_20251019_131939/plots/comprehensive_model_comparison.png)
-- [عملکرد کلاس‌های امنیتی](code/final_report/run_20251019_131939/plots/class_1_performance.png)
-- [تحلیل Trade-off](code/final_report/run_20251019_131939/plots/class_2_performance.png)
+---
 
-##  راهنمای استقرار
+## **Reports and Visualizations**
 
-###  استقرار سریع
+### **Core Reports**
+
+* [ Full Technical Report](code/final_report/run_20251028_013150/reports/final_results.json)
+* [ Executive Summary](code/final_report/run_20251028_013150/reports/executive_summary.txt)
+* [ Selected Model Details](code/final_report/run_20251028_013150/reports/selected_model.json)
+
+### **Interactive Notebooks**
+
+* [Final Analysis Notebook](code/final_report/run_20251028_013150/notebooks/final_report.ipynb)
+* [Model Demo Notebook](notebooks/model_demo.ipynb)
+
+### **Visual Assets**
+
+* [Model Comparison](code/final_report/run_20251028_013150/plots/comprehensive_model_comparison.png)
+* [Security-Class Performance (1)](code/final_report/run_20251028_013150/plots/class_1_performance.png)
+* [Security-Class Performance (2)](code/final_report/run_20251028_013150/plots/class_2_performance.png)
+
+---
+
+## **Deployment Guide**
+
 ```python
 from joblib import load
 
-# بارگذاری مدل و پیش‌پردازش‌گر
 model = load('models/production/selected_model.pkl')
 preprocessor = load('models/production/preprocessor.pkl')
 
-# پیش‌بینی روی داده جدید
 def predict_network_activity(features):
-    processed_features = preprocessor.transform(features)
-    predictions = model.predict(processed_features)
-    probabilities = model.predict_proba(processed_features)
-    return predictions, probabilities
+    processed = preprocessor.transform(features)
+    preds = model.predict(processed)
+    probs = model.predict_proba(processed)
+    return preds, probs
 ```
 
+---
 
-##  توسعه و گسترش
-<a id="development"></a>
-###  معماری ماژولار
-سیستم به گونه‌ای طراحی شده که به راحتی قابل توسعه و سفارشی‌سازی است:
+## **Development and Configuration**
+
+### **Modular Architecture**
 
 ```python
-# افزودن مدل جدید
 from code.src.model_manager.model_trainer import ModelTrainer
 from sklearn.ensemble import GradientBoostingClassifier
 
@@ -205,44 +199,110 @@ trainer = ModelTrainer()
 trainer.add_model('gradient_boosting', GradientBoostingClassifier())
 ```
 
-###  پیکربندی
-فایل‌های پیکربندی در پوشه `src/config/` قرار دارند:
-- `model_config.py` - تنظیمات مدل‌ها
-- `balancing_config.py` - تنظیمات مدیریت عدم تعادل
-- `reporting_config.py` - تنظیمات گزارش‌دهی
+### **Key Config Files**
 
-
-
-##  مشارکت  
-<a id="contribution"></a>
-###  راهنمای مشارکت
-۱. فورک کردن ریپوزیتوری
-۲. ایجاد برنچ برای ویژگی جدید (`git checkout -b feature/AmazingFeature`)
-۳. کامیت تغییرات (`git commit -m 'Add some AmazingFeature'`)
-۴. پوش به برنچ (`git push origin feature/AmazingFeature`)
-۵. باز کردن Pull Request
-
-
-##  پشتیبانی و ارتباط
-
-###  توسعه‌دهنده
-- **نام**:مائده مدنی
-- **ایمیل**: maedemadani99@gmail.com
-- **تلفن**: 09138140572
-
-###  اطلاعات پروژه
-- **تاریخ شروع**: 16/07/1404
-- **تاریخ تحویل**: 27/07/1404
-- **نسخه**: ۱.۰.۰
-
-
-##  تقدیر و تشکر
-
-- از تیم **امنیت شبکه** برای ارائه داده‌های ارزشمند
-- از **tesna.co** برای پشتیبانی مستمر
+* `src/config/model_config.py` – Model definitions
+* `src/config/balancing_config.py` – Sampling and imbalance settings
+* `src/config/reporting_config.py` – Reporting and Phase 5 paths
 
 ---
 
+## **Contribution**
 
+1. Fork the repository
+2. Create a feature branch
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Commit your changes
+
+   ```bash
+   git commit -m "Add YourFeature"
+   ```
+4. Push and open a Pull Request
+
+---
+
+## **Contact**
+
+**Developer:** Maede Madani
+**Email:** [maedemadani99@gmail.com](mailto:maedemadani99@gmail.com)
+**Version:** 1.0.0
+**Start Date:** 1404-07-16
+**Delivery:** 1404-07-27
+
+---
+
+## **Acknowledgments**
+
+* Thanks to the **Network Security Team** for providing high-quality data
+* Appreciation to **Tesna Co.** for ongoing support
+
+---
+
+---
+
+<div dir="rtl">
+
+# **پروژه طبقه‌بندی هوشمند فعالیت‌های شبکه**
+
+## **معرفی**
+
+این پروژه یک سیستم یادگیری ماشین پنج‌مرحله‌ای است که با تمرکز بر **شناسایی تهدیدات امنیتی شبکه** طراحی شده و قادر است انواع ترافیک را در چهار کلاس اصلی (*allow, deny, drop, reset-both*) طبقه‌بندی کند.
+
+## **اهداف**
+
+* ایجاد مدل هوشمند برای تشخیص رفتارهای غیرعادی شبکه
+* بهبود نرخ شناسایی تهدیدات امنیتی
+* توسعه پایپلاین کامل از داده خام تا گزارش نهایی
+* ارائه ساختار ماژولار برای استفاده مجدد در دیتاست‌های مشابه
+
+## **دستاوردهای کلیدی**
+
+| معیار              | قبل  | بعد   | بهبود |
+| ------------------ | ---- | ----- | ----- |
+| F1 کلاس‌های امنیتی | ۰.۶۰ | ۰.۸۱۵ | +۳۶٪  |
+| Recall کلاس Deny   | ۰.۶۲ | ۰.۸۴  | +۳۵٪  |
+| Recall کلاس Drop   | ۰.۵۸ | ۰.۷۹  | +۳۶٪  |
+
+## **مدل نهایی**
+
+* الگوریتم : KNN
+* داده : Oversampling (SMOTE)
+* دقت : ۹۹٫۸٪
+* امتیاز امنیتی : ۰٫۹۶۱
+
+## **ساختار پروژه**
+
+پروژه شامل پنج فاز است:
+
+1. پاکسازی و آماده‌سازی داده
+2. مهندسی ویژگی‌ها
+3. مدیریت عدم تعادل (SMOTE + Undersampling)
+4. آموزش و ارزیابی مدل‌ها
+5. تحلیل نهایی و تولید گزارش‌ها
+
+## **نحوه اجرا**
+
+```bash
+python3 code/main.py --all --input data/network_logs.csv
+```
+
+## **خروجی‌ها**
+
+تمام نتایج در مسیر
+`code/final_report/run_20251028_013150/`
+ذخیره می‌شوند و شامل گزارش‌ها، مصورسازی‌ها و نوت‌بوک تحلیل نهایی است.
+
+## **توسعه‌دهنده**
+
+* نام : مائده مدنی
+* ایمیل : [maedemadani99@gmail.com](mailto:maedemadani99@gmail.com)
+
+---
 
 </div>
+
+---
+
